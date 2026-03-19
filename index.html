@@ -8,12 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@300;400;500;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
-/* ═══════════════════════════════════════════
-   VAYANA SIGNAL INTELLIGENCE v4
-   Aesthetic: Bloomberg Terminal × Minority Report
-   Fonts: Playfair Display + Cabinet Grotesk + JetBrains Mono
-   Palette: Obsidian + Electric Cyan + Signal Amber
-═══════════════════════════════════════════ */
 :root {
   --void: #050508;
   --obsidian: #08080f;
@@ -43,10 +37,8 @@
   --r: 16px;
   --r2: 12px;
 }
-
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-
 body {
   background: var(--void);
   color: var(--body);
@@ -55,15 +47,11 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
-
-/* ── SCANLINE TEXTURE ── */
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
 }
-
-/* ── GRID BG ── */
 body::after {
   content: '';
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -73,23 +61,16 @@ body::after {
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
-
-/* ── CUSTOM CURSOR ── */
 #cur { position:fixed; width:8px; height:8px; background:var(--cyan); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .1s, width .15s, height .15s; mix-blend-mode:screen; }
 #cur2 { position:fixed; width:32px; height:32px; border:1px solid rgba(0,212,255,0.4); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:transform .14s ease-out; }
 #cur3 { position:fixed; width:64px; height:64px; border:1px solid rgba(0,212,255,0.1); border-radius:50%; pointer-events:none; z-index:9997; transform:translate(-50%,-50%); transition:transform .22s ease-out; }
-
-/* ── TICKER ── */
 .ticker {
   position: fixed; top:0; left:0; right:0; z-index:200;
   height: 28px; background: var(--void);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; overflow: hidden;
 }
-.ticker-inner {
-  display: flex; gap: 0; white-space: nowrap;
-  animation: ticker-scroll 30s linear infinite;
-}
+.ticker-inner { display: flex; gap: 0; white-space: nowrap; animation: ticker-scroll 30s linear infinite; }
 .ticker-item {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px; letter-spacing: .1em;
@@ -102,8 +83,6 @@ body::after {
 .ticker-item .dn { color: var(--rose); }
 .ticker-item .neu { color: var(--cyan); }
 @keyframes ticker-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-
-/* ── NAV ── */
 .nav {
   position: fixed; top: 28px; left: 0; right: 0; z-index: 100;
   height: 56px; padding: 0 32px;
@@ -112,9 +91,7 @@ body::after {
   border-bottom: 1px solid var(--border);
 }
 .nav-left { display:flex; align-items:center; gap:20px; }
-.nav-logo {
-  display: flex; align-items: center; gap: 10px;
-}
+.nav-logo { display: flex; align-items: center; gap: 10px; }
 .logo-mark {
   width: 30px; height: 30px;
   background: var(--cyan); border-radius: 6px;
@@ -124,22 +101,10 @@ body::after {
   position: relative; overflow: hidden;
   box-shadow: 0 0 20px rgba(0,212,255,0.4);
 }
-.logo-mark::after {
-  content: ''; position:absolute; inset:0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
-}
-.logo-text {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
-  color: var(--white);
-}
+.logo-mark::after { content: ''; position:absolute; inset:0; background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent); }
+.logo-text { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -.01em; color: var(--white); }
 .logo-text span { color: var(--cyan); }
-.logo-ver {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; color: var(--muted);
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 2px 6px; border-radius: 3px; letter-spacing: .1em;
-}
+.logo-ver { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 2px 6px; border-radius: 3px; letter-spacing: .1em; }
 .nav-divider { width:1px; height:20px; background:var(--border); }
 .nav-tabs { display:flex; gap:2px; }
 .ntab {
@@ -170,8 +135,6 @@ body::after {
   color: var(--soft); transition: all .18s;
 }
 .wh-btn:hover { border-color: var(--cyan); color: var(--cyan); }
-
-/* ── WEBHOOK DRAWER ── */
 .wh-drawer {
   position: fixed; top: 84px; left:0; right:0; z-index:99;
   background: rgba(8,8,15,0.95); backdrop-filter: blur(24px);
@@ -182,25 +145,13 @@ body::after {
 .wh-drawer.open { transform: translateY(0); }
 .wh-lbl { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; white-space:nowrap; }
 .wh-lbl em { color:var(--cyan); font-style:normal; }
-.wh-input {
-  flex:1; background:var(--surface); border:1px solid var(--border); border-radius:6px;
-  padding:9px 14px; color:var(--bright); font-family:'JetBrains Mono',monospace; font-size:12px;
-  outline:none; transition:all .2s;
-}
+.wh-input { flex:1; background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:9px 14px; color:var(--bright); font-family:'JetBrains Mono',monospace; font-size:12px; outline:none; transition:all .2s; }
 .wh-input:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,212,255,0.08); }
 .wh-input.ok { border-color:rgba(0,229,116,0.4); }
-.wh-save {
-  background: var(--cyan); border:none; border-radius:6px; padding:9px 18px;
-  color:var(--void); font-family:'Cabinet Grotesk',sans-serif; font-size:13px;
-  font-weight:700; cursor:pointer; transition:all .2s; white-space:nowrap;
-}
+.wh-save { background: var(--cyan); border:none; border-radius:6px; padding:9px 18px; color:var(--void); font-family:'Cabinet Grotesk',sans-serif; font-size:13px; font-weight:700; cursor:pointer; transition:all .2s; white-space:nowrap; }
 .wh-save:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(0,212,255,0.3); }
 .wh-status { font-family:'JetBrains Mono',monospace; font-size:11px; min-width:70px; }
-
-/* ── MAIN PAGE ── */
 .page { padding-top: 84px; transition: padding-top .3s; }
-
-/* ── INPUT PANEL ── */
 .input-section {
   padding: 40px 32px 32px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
@@ -208,262 +159,107 @@ body::after {
   min-height: calc(100vh - 84px);
 }
 .input-hero { }
-.input-eyebrow {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  letter-spacing: .2em; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 16px;
-  display: flex; align-items: center; gap: 10px;
-}
+.input-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
 .input-eyebrow::before { content:''; width:20px; height:1px; background:var(--cyan); }
-.input-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 4vw, 64px);
-  font-weight: 400; line-height: 1.05;
-  letter-spacing: -.02em; color: var(--white);
-  margin-bottom: 14px;
-}
+.input-heading { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; color: var(--white); margin-bottom: 14px; }
 .input-heading em { font-style: italic; color: var(--cyan); }
-.input-sub {
-  font-size: 15px; color: var(--muted); line-height: 1.75;
-  max-width: 480px; margin-bottom: 32px;
-}
+.input-sub { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 480px; margin-bottom: 32px; }
 .stat-row { display:flex; gap:32px; }
 .stat-item { }
-.stat-n {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px; font-weight: 700; color: var(--white);
-  line-height: 1; margin-bottom: 4px;
-}
+.stat-n { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 4px; }
 .stat-n em { color:var(--cyan); font-style:italic; }
 .stat-l { font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; }
-
-/* ── INPUT CARD ── */
-.input-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  position: relative;
-  min-height: 580px;
-  display: flex; flex-direction: column;
-}
-.input-card::before {
-  content: ''; position:absolute; top:0; left:0; right:0; height:2px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-}
-.ic-head {
-  padding: 22px 28px 0;
-  display: flex; align-items:center; justify-content:space-between;
-  margin-bottom: 22px;
-}
+.input-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; position: relative; min-height: 580px; display: flex; flex-direction: column; }
+.input-card::before { content: ''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); }
+.ic-head { padding: 22px 28px 0; display: flex; align-items:center; justify-content:space-between; margin-bottom: 22px; }
 .ic-title { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; }
 .ic-dots { display:flex; gap:6px; }
 .icd { width:11px; height:11px; border-radius:50%; }
 .icd1{background:#ff5f57;}.icd2{background:#febc2e;}.icd3{background:#28c840;}
 .ic-body { padding: 0 28px 28px; flex:1; display:flex; flex-direction:column; }
-
-.company-input {
-  width: 100%; background: var(--deep);
-  border: 1px solid var(--border2); border-radius: 12px;
-  padding: 20px 22px; color: var(--white);
-  font-family: 'Playfair Display', serif;
-  font-size: 28px; font-style: italic;
-  outline: none; transition: all .25s; margin-bottom: 16px;
-}
+.company-input { width: 100%; background: var(--deep); border: 1px solid var(--border2); border-radius: 12px; padding: 20px 22px; color: var(--white); font-family: 'Playfair Display', serif; font-size: 28px; font-style: italic; outline: none; transition: all .25s; margin-bottom: 16px; }
 .company-input::placeholder { color: var(--dim); }
 .company-input:focus { border-color: var(--cyan); background: var(--obsidian); box-shadow: 0 0 0 3px rgba(0,212,255,0.06); }
-
-/* Quick picks */
 .qrow { display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
 .ql { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
-.qpick {
-  font-family:'JetBrains Mono',monospace; font-size:11px;
-  padding:7px 16px; background:var(--deep); border:1px solid var(--border);
-  border-radius:20px; color:var(--soft); cursor:pointer; transition:all .15s;
-}
+.qpick { font-family:'JetBrains Mono',monospace; font-size:11px; padding:7px 16px; background:var(--deep); border:1px solid var(--border); border-radius:20px; color:var(--soft); cursor:pointer; transition:all .15s; }
 .qpick:hover { border-color:var(--cyan); color:var(--cyan); background:var(--cyan3); }
-
-/* Mode selector */
 .mode-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
-.mode-opt {
-  padding:16px 10px; border-radius:10px; border:1px solid var(--border);
-  cursor:pointer; transition:all .18s; text-align:center; position:relative; overflow:hidden;
-}
+.mode-opt { padding:16px 10px; border-radius:10px; border:1px solid var(--border); cursor:pointer; transition:all .18s; text-align:center; position:relative; overflow:hidden; }
 .mode-opt:hover { border-color:var(--border2); }
 .mode-opt.sel { border-color:var(--cyan); background:var(--cyan3); }
 .mode-opt.sel::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:var(--cyan); }
 .mo-icon { font-size:22px; margin-bottom:6px; }
 .mo-lbl { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--soft); letter-spacing:.06em; text-transform:uppercase; }
 .mode-opt.sel .mo-lbl { color:var(--cyan); }
-
-/* Expandable fields */
 .exp-fields { max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.4,0,.2,1); }
 .exp-fields.open { max-height:400px; }
 .field-group { margin-bottom:12px; }
-.field-label {
-  font-family:'JetBrains Mono',monospace; font-size:11px;
-  color:var(--muted); letter-spacing:.1em; text-transform:uppercase;
-  margin-bottom:7px; display:flex; align-items:center; gap:6px;
-}
+.field-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:flex; align-items:center; gap:6px; }
 .trust-star { font-size:10px; padding:2px 8px; background:rgba(0,229,116,0.1); color:var(--green); border:1px solid rgba(0,229,116,0.2); border-radius:3px; }
-.field-input {
-  width:100%; background:var(--deep); border:1px solid var(--border);
-  border-radius:8px; padding:11px 14px; color:var(--soft);
-  font-family:'JetBrains Mono',monospace; font-size:12px;
-  outline:none; transition:all .18s;
-}
+.field-input { width:100%; background:var(--deep); border:1px solid var(--border); border-radius:8px; padding:11px 14px; color:var(--soft); font-family:'JetBrains Mono',monospace; font-size:12px; outline:none; transition:all .18s; }
 .field-input::placeholder { color:var(--dim); }
 .field-input:focus { border-color:rgba(0,212,255,0.4); color:var(--bright); }
-
-/* Source status bar */
-.src-status {
-  font-family:'JetBrains Mono',monospace; font-size:12px;
-  padding:12px 16px; border-radius:8px; margin-bottom:16px;
-  display:flex; align-items:center; gap:10px; transition:all .3s;
-}
+.src-status { font-family:'JetBrains Mono',monospace; font-size:12px; padding:12px 16px; border-radius:8px; margin-bottom:16px; display:flex; align-items:center; gap:10px; transition:all .3s; }
 .src-status.auto { background:rgba(0,212,255,0.05); border:1px solid rgba(0,212,255,0.15); color:var(--cyan); }
 .src-status.manual { background:var(--amber2); border:1px solid rgba(255,184,0,0.2); color:var(--amber); }
 .src-status.both { background:rgba(157,125,255,0.05); border:1px solid rgba(157,125,255,0.2); color:var(--violet); }
-
-/* Analyze button */
-.analyze-btn {
-  width:100%; padding:20px; border:none; border-radius:12px;
-  background: linear-gradient(135deg, var(--cyan), var(--cyan2));
-  color: var(--void); font-family:'Cabinet Grotesk',sans-serif;
-  font-size:16px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  cursor:pointer; transition:all .25s; position:relative; overflow:hidden;
-  display:flex; align-items:center; justify-content:center; gap:12px;
-  box-shadow: 0 4px 24px rgba(0,212,255,0.2);
-  margin-top: auto;
-}
-.analyze-btn::before {
-  content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left .5s;
-}
+.analyze-btn { width:100%; padding:20px; border:none; border-radius:12px; background: linear-gradient(135deg, var(--cyan), var(--cyan2)); color: var(--void); font-family:'Cabinet Grotesk',sans-serif; font-size:16px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:all .25s; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:12px; box-shadow: 0 4px 24px rgba(0,212,255,0.2); margin-top: auto; }
+.analyze-btn::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left .5s; }
 .analyze-btn:hover::before { left:100%; }
 .analyze-btn:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,212,255,0.35); }
 .analyze-btn:disabled { opacity:.4; cursor:not-allowed; transform:none; }
 .btn-arrow { font-size:20px; transition:transform .2s; }
 .analyze-btn:hover .btn-arrow { transform:translateX(4px); }
-
 .err-box { display:none; background:var(--rose2); border:1px solid rgba(255,77,106,.25); border-radius:10px; padding:16px 20px; margin-top:12px; }
 .err-box.on { display:block; }
 .err-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--rose); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px; }
 .err-msg { font-size:14px; color:var(--soft); line-height:1.65; white-space:pre-line; }
-
-/* ── LOADING SCREEN ── */
-.loading-screen {
-  display:none; position:fixed; inset:0; z-index:500;
-  background:var(--void); align-items:center; justify-content:center;
-  flex-direction:column; gap:32px;
-}
+.loading-screen { display:none; position:fixed; inset:0; z-index:500; background:var(--void); align-items:center; justify-content:center; flex-direction:column; gap:32px; }
 .loading-screen.on { display:flex; }
-.load-scanner {
-  position:relative; width:140px; height:140px;
-}
-.scan-ring {
-  position:absolute; inset:0; border-radius:50%;
-  border:1px solid transparent; animation:spin 2s linear infinite;
-}
+.load-scanner { position:relative; width:140px; height:140px; }
+.scan-ring { position:absolute; inset:0; border-radius:50%; border:1px solid transparent; animation:spin 2s linear infinite; }
 .sr1 { border-top-color:var(--cyan); animation-duration:1.2s; }
 .sr2 { inset:14px; border-right-color:rgba(0,212,255,0.4); animation-duration:2s; animation-direction:reverse; }
 .sr3 { inset:28px; border-bottom-color:rgba(0,212,255,0.2); animation-duration:3s; }
 @keyframes spin { to { transform:rotate(360deg); } }
-.scan-center {
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  font-family:'Playfair Display',serif; font-size:36px; color:var(--cyan);
-  font-style:italic;
-}
-.load-company {
-  font-family:'Playfair Display',serif;
-  font-size:32px; font-style:italic; color:var(--white); text-align:center;
-}
-.load-pipeline {
-  display:flex; align-items:center; gap:0; flex-wrap:wrap; justify-content:center;
-}
-.lpstep {
-  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
-  padding:7px 14px; border:1px solid var(--border); border-radius:5px; color:var(--muted);
-  transition:all .3s; white-space:nowrap;
-}
+.scan-center { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:36px; color:var(--cyan); font-style:italic; }
+.load-company { font-family:'Playfair Display',serif; font-size:32px; font-style:italic; color:var(--white); text-align:center; }
+.load-pipeline { display:flex; align-items:center; gap:0; flex-wrap:wrap; justify-content:center; }
+.lpstep { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:7px 14px; border:1px solid var(--border); border-radius:5px; color:var(--muted); transition:all .3s; white-space:nowrap; }
 .lpstep.act { border-color:var(--cyan); background:var(--cyan3); color:var(--cyan); }
 .lpstep.done { border-color:rgba(0,229,116,0.3); background:rgba(0,229,116,0.05); color:var(--green); }
 .lparr { color:var(--border); font-size:14px; padding:0 5px; transition:color .3s; }
 .lparr.act { color:var(--cyan); }
 .load-chips { display:flex; gap:7px; flex-wrap:wrap; justify-content:center; }
-.lchip {
-  font-family:'JetBrains Mono',monospace; font-size:10px;
-  padding:5px 12px; border-radius:20px; border:1px solid var(--border); color:var(--muted);
-  transition:all .3s;
-}
+.lchip { font-family:'JetBrains Mono',monospace; font-size:10px; padding:5px 12px; border-radius:20px; border:1px solid var(--border); color:var(--muted); transition:all .3s; }
 .lchip.fetching { border-color:rgba(0,212,255,0.3); color:var(--cyan); animation:pulse 1s infinite; }
 .lchip.done { border-color:rgba(0,229,116,0.3); color:var(--green); background:rgba(0,229,116,0.05); }
 .load-note { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.06em; text-align:center; }
-
-/* ═══════════════════════════════════════
-   RESULTS — BENTO GRID LAYOUT
-═══════════════════════════════════════ */
 .results { display:none; padding:24px 32px 48px; }
 .results.on { display:block; }
-
-/* ── TOP COMMAND BAR ── */
-.cmd-bar {
-  display:flex; align-items:center; justify-content:space-between;
-  margin-bottom:24px; padding-bottom:20px;
-  border-bottom:1px solid var(--border);
-}
-.cmd-company {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(24px,3vw,42px); font-style:italic; color:var(--white);
-  letter-spacing:-.02em; display:flex; align-items:center; gap:16px;
-}
-.cmd-grade {
-  font-family:'Playfair Display',serif;
-  font-size:20px; padding:4px 18px; border-radius:8px; border:1px solid;
-}
+.cmd-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.cmd-company { font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,42px); font-style:italic; color:var(--white); letter-spacing:-.02em; display:flex; align-items:center; gap:16px; }
+.cmd-grade { font-family:'Playfair Display',serif; font-size:20px; padding:4px 18px; border-radius:8px; border:1px solid; }
 .gA{color:var(--green);border-color:rgba(0,229,116,.3);background:rgba(0,229,116,.08);}
 .gB{color:var(--cyan);border-color:rgba(0,212,255,.3);background:var(--cyan3);}
 .gC{color:var(--amber);border-color:rgba(255,184,0,.3);background:var(--amber2);}
 .gD{color:#ff8c42;border-color:rgba(255,140,66,.3);background:rgba(255,140,66,.08);}
 .gF{color:var(--rose);border-color:rgba(255,77,106,.3);background:var(--rose2);}
 .cmd-meta { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-.cmeta-tag {
-  font-family:'JetBrains Mono',monospace; font-size:10px;
-  padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;
-}
+.cmeta-tag { font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase; }
 .ct-high{background:rgba(0,229,116,.08);color:var(--green);border:1px solid rgba(0,229,116,.2);}
 .ct-medium{background:var(--amber2);color:var(--amber);border:1px solid rgba(255,184,0,.2);}
 .ct-low{background:var(--rose2);color:var(--rose);border:1px solid rgba(255,77,106,.2);}
 .ct-audited{background:rgba(157,125,255,.08);color:var(--violet);border:1px solid rgba(157,125,255,.2);}
 .cmd-ts { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); }
 .cmd-actions { display:flex; gap:8px; }
-.ca-btn {
-  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
-  padding:7px 14px; border-radius:6px; cursor:pointer; transition:all .18s;
-  background:var(--surface); border:1px solid var(--border); color:var(--soft);
-  display:flex; align-items:center; gap:6px;
-}
+.ca-btn { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:7px 14px; border-radius:6px; cursor:pointer; transition:all .18s; background:var(--surface); border:1px solid var(--border); color:var(--soft); display:flex; align-items:center; gap:6px; }
 .ca-btn:hover { border-color:var(--cyan); color:var(--cyan); }
 .ca-btn.primary { background:var(--cyan); color:var(--void); border-color:var(--cyan); font-weight:700; }
 .ca-btn.primary:hover { box-shadow:0 4px 16px rgba(0,212,255,.3); }
-
-/* ── BENTO GRID ── */
-.bento {
-  display: grid;
-  grid-template-columns: 280px 1fr 1fr 260px;
-  grid-template-rows: auto;
-  gap: 14px;
-}
-
-/* ── SCORE TOWER ── */
-.score-tower {
-  grid-column: 1; grid-row: 1 / 3;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 28px 20px;
-  display: flex; flex-direction:column; align-items:center; gap:20px;
-  position:relative; overflow:hidden;
-}
+.bento { display: grid; grid-template-columns: 280px 1fr 1fr 260px; grid-template-rows: auto; gap: 14px; }
+.score-tower { grid-column: 1; grid-row: 1 / 3; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 28px 20px; display: flex; flex-direction:column; align-items:center; gap:20px; position:relative; overflow:hidden; }
 .score-tower::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); }
 .st-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; }
 .score-ring-wrap { position:relative; width:200px; height:200px; }
@@ -480,73 +276,36 @@ body::after {
 .sms-row { display:flex; justify-content:space-between; align-items:center; }
 .sms-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
 .sms-val { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:500; }
-
-/* ── HYPE GAUGE ── */
-.hype-card {
-  grid-column: 2 / 4; grid-row: 1;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 28px;
-  position: relative; overflow: hidden;
-}
+.hype-card { grid-column: 2 / 4; grid-row: 1; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; position: relative; overflow: hidden; }
 .hype-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
 .hc-head { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:28px; }
 .hc-title-wrap { }
 .hc-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; margin-bottom:8px; }
 .hc-title { font-family:'Playfair Display',serif; font-size:28px; font-style:italic; color:var(--white); }
-.hype-badge {
-  font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700;
-  padding:9px 22px; border-radius:8px; border:1px solid; letter-spacing:.1em; text-transform:uppercase;
-}
+.hype-badge { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; padding:9px 22px; border-radius:8px; border:1px solid; letter-spacing:.1em; text-transform:uppercase; }
 .hb-low { background:rgba(0,229,116,.08); color:var(--green); border-color:rgba(0,229,116,.3); }
 .hb-some { background:var(--amber2); color:var(--amber); border-color:rgba(255,184,0,.3); }
 .hb-high { background:var(--rose2); color:var(--rose); border-color:rgba(255,77,106,.3); }
-
-/* Hype gauge bar */
 .gauge-wrap { margin-bottom:24px; }
 .gauge-labels { display:flex; justify-content:space-between; margin-bottom:10px; }
 .gauge-lbl { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
-.gauge-track {
-  height:16px; border-radius:8px; overflow:hidden; position:relative;
-  background: linear-gradient(90deg, var(--green) 0%, var(--amber) 50%, var(--rose) 100%);
-  opacity:.25;
-}
-.gauge-track-active {
-  position:absolute; top:0; left:0; height:100%;
-  border-radius:8px; transition:width 1.8s cubic-bezier(.4,0,.2,1);
-  background: linear-gradient(90deg, var(--green), var(--amber), var(--rose));
-}
+.gauge-track { height:16px; border-radius:8px; overflow:hidden; position:relative; background: linear-gradient(90deg, var(--green) 0%, var(--amber) 50%, var(--rose) 100%); opacity:.25; }
+.gauge-track-active { position:absolute; top:0; left:0; height:100%; border-radius:8px; transition:width 1.8s cubic-bezier(.4,0,.2,1); background: linear-gradient(90deg, var(--green), var(--amber), var(--rose)); }
 .gauge-pointer-wrap { position:relative; height:20px; margin-top:5px; }
-.gauge-pointer {
-  position:absolute; top:0; transform:translateX(-50%);
-  width:2px; height:20px; background:var(--white);
-  border-radius:2px; transition:left 1.8s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 0 8px rgba(255,255,255,.5);
-}
+.gauge-pointer { position:absolute; top:0; transform:translateX(-50%); width:2px; height:20px; background:var(--white); border-radius:2px; transition:left 1.8s cubic-bezier(.4,0,.2,1); box-shadow:0 0 8px rgba(255,255,255,.5); }
 .gauge-score-display { display:flex; justify-content:center; margin-top:10px; align-items:flex-end; gap:6px; }
 .gsd-num { font-family:'Playfair Display',serif; font-size:48px; font-weight:700; line-height:1; }
 .gsd-denom { font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--muted); padding-bottom:8px; }
 .gsd-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); padding-bottom:10px; }
-
-/* Hype dim mini bars */
 .hype-dims-row { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
 .hdim-mini { }
 .hdm-name { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; line-height:1.4; }
 .hdm-bar { height:6px; background:var(--border2); border-radius:3px; overflow:hidden; margin-bottom:5px; }
 .hdm-fill { height:100%; border-radius:3px; width:0%; transition:width 1.5s cubic-bezier(.4,0,.2,1); }
 .hdm-score { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; }
-
-/* ── MATURITY CARD ── */
-.maturity-card {
-  grid-column: 4; grid-row: 1;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 24px;
-  position: relative; overflow: hidden;
-}
+.maturity-card { grid-column: 4; grid-row: 1; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; position: relative; overflow: hidden; }
 .mc-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; margin-bottom:14px; }
-.maturity-stage {
-  font-family:'Playfair Display',serif; font-size:22px; font-style:italic;
-  color:var(--white); margin-bottom:20px; line-height:1.3;
-}
+.maturity-stage { font-family:'Playfair Display',serif; font-size:22px; font-style:italic; color:var(--white); margin-bottom:20px; line-height:1.3; }
 .mat-track { display:flex; flex-direction:column; gap:8px; }
 .mat-step { display:flex; align-items:center; gap:12px; }
 .mat-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; border:2px solid var(--border); }
@@ -560,23 +319,11 @@ body::after {
 .mcc-row { display:flex; justify-content:space-between; align-items:center; }
 .mcc-l { font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
 .mcc-v { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; }
-
-/* ── CAPABILITY RADAR ── */
-.radar-card {
-  grid-column: 2; grid-row: 2;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 24px;
-}
+.radar-card { grid-column: 2; grid-row: 2; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
 .card-title { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
 .card-title::after { content:''; flex:1; height:1px; background:var(--border); }
 .radar-wrap { height:300px; display:flex; align-items:center; justify-content:center; }
-
-/* ── DIMENSIONS CARD ── */
-.dims-card {
-  grid-column: 3; grid-row: 2;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 24px;
-}
+.dims-card { grid-column: 3; grid-row: 2; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
 .dim-list { display:flex; flex-direction:column; gap:18px; }
 .dim-item { }
 .dim-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:7px; }
@@ -593,13 +340,7 @@ body::after {
 .dim-bar-track { height:3px; background:var(--border2); border-radius:2px; overflow:hidden; margin-bottom:6px; }
 .dim-bar-fill { height:100%; border-radius:2px; width:0%; transition:width 1.6s cubic-bezier(.4,0,.2,1); }
 .dim-reason { font-size:13px; color:var(--muted); line-height:1.65; }
-
-/* ── STRENGTH/RISK CARD ── */
-.sr-card {
-  grid-column: 4; grid-row: 2;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 24px;
-}
+.sr-card { grid-column: 4; grid-row: 2; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
 .sr-section { margin-bottom:20px; }
 .sr-section:last-child { margin-bottom:0; }
 .sr-title { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; margin-bottom:12px; }
@@ -609,14 +350,7 @@ body::after {
 .sr-list li { font-size:14px; color:var(--soft); line-height:1.6; display:flex; gap:10px; }
 .str-li::before { content:'↑'; color:var(--green); font-size:13px; flex-shrink:0; margin-top:2px; }
 .risk-li::before { content:'!'; color:var(--rose); font-size:13px; flex-shrink:0; margin-top:2px; font-family:'JetBrains Mono',monospace; }
-
-/* ── GAP ANALYSIS ── */
-.gap-card {
-  grid-column: 1 / 3; grid-row: 3;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 28px;
-  position:relative; overflow:hidden;
-}
+.gap-card { grid-column: 1 / 3; grid-row: 3; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; position:relative; overflow:hidden; }
 .gap-card::before { content:''; position:absolute; left:0;top:0;bottom:0; width:3px; background:var(--violet); }
 .gap-card-inner { padding-left:16px; }
 .gap-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--violet); letter-spacing:.15em; text-transform:uppercase; margin-bottom:10px; }
@@ -631,19 +365,9 @@ body::after {
 .oc-list li::before { font-size:11px; flex-shrink:0; margin-top:2px; font-family:'JetBrains Mono',monospace; }
 .oc-out li::before { content:'◈'; color:var(--violet); }
 .oc-clm li::before { content:'◇'; color:var(--amber); }
-
-/* ── EVIDENCE CARD ── */
-.evidence-card {
-  grid-column: 3 / 5; grid-row: 3;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 24px;
-  overflow:hidden;
-}
+.evidence-card { grid-column: 3 / 5; grid-row: 3; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; overflow:hidden; }
 .ev-list { display:flex; flex-direction:column; gap:10px; }
-.ev-item {
-  background:var(--deep); border:1px solid var(--border);
-  border-radius:10px; padding:14px 16px; border-left:3px solid;
-}
+.ev-item { background:var(--deep); border:1px solid var(--border); border-radius:10px; padding:14px 16px; border-left:3px solid; }
 .ev-dim-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
 .ev-dim-name { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
 .ev-trust { font-family:'JetBrains Mono',monospace; font-size:9px; padding:2px 7px; border-radius:3px; }
@@ -653,19 +377,9 @@ body::after {
 .ev-findings { list-style:none; display:flex; flex-direction:column; gap:5px; }
 .ev-findings li { font-size:13px; color:var(--muted); display:flex; gap:10px; line-height:1.6; }
 .ev-findings li::before { content:'›'; color:var(--amber); font-size:16px; flex-shrink:0; line-height:1.3; }
-
-/* ── SOURCES CARD ── */
-.sources-card {
-  grid-column: 1 / 5; grid-row: 4;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 24px;
-}
+.sources-card { grid-column: 1 / 5; grid-row: 4; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
 .src-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
-.src-tile {
-  background:var(--deep); border:1px solid var(--border);
-  border-radius:10px; padding:16px; transition:all .2s;
-  display:flex; align-items:flex-start; gap:12px;
-}
+.src-tile { background:var(--deep); border:1px solid var(--border); border-radius:10px; padding:16px; transition:all .2s; display:flex; align-items:flex-start; gap:12px; }
 .src-tile:hover { border-color:var(--border2); transform:translateY(-1px); }
 .src-tile.trusted { border-color:rgba(157,125,255,.25); background:rgba(157,125,255,.03); }
 .src-tile-icon { font-size:20px; flex-shrink:0; margin-top:1px; }
@@ -677,73 +391,519 @@ body::after {
 .src-tile-desc { font-size:13px; color:var(--muted); line-height:1.5; margin-bottom:7px; }
 .src-link { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--cyan); text-decoration:none; display:inline-flex; align-items:center; gap:4px; transition:color .15s; }
 .src-link:hover { color:var(--green); }
-
-/* ── ANALYST NOTE ── */
-.analyst-bar {
-  grid-column: 1 / 5; grid-row: 5;
-  background: var(--deep); border: 1px solid var(--border);
-  border-radius: var(--r2); padding: 16px 24px;
-  display: flex; align-items: center; gap: 16px;
-}
+.analyst-bar { grid-column: 1 / 5; grid-row: 5; background: var(--deep); border: 1px solid var(--border); border-radius: var(--r2); padding: 16px 24px; display: flex; align-items: center; gap: 16px; }
 .ab-icon { font-size:22px; flex-shrink:0; }
 .ab-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:.15em; text-transform:uppercase; white-space:nowrap; }
 .ab-text { font-size:15px; color:var(--soft); font-style:italic; line-height:1.7; }
-
-/* ── HISTORY ── */
 .history-section { display:none; padding:0 32px 32px; }
 .hist-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:12px; }
 .hist-title::after { content:''; flex:1; height:1px; background:var(--border); }
 .hist-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; }
-.hcard {
-  background:var(--surface); border:1px solid var(--border); border-radius:12px;
-  padding:16px; cursor:pointer; transition:all .2s;
-  display:flex; justify-content:space-between; align-items:center;
-}
+.hcard { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px; cursor:pointer; transition:all .2s; display:flex; justify-content:space-between; align-items:center; }
 .hcard:hover { border-color:var(--cyan); transform:translateY(-2px); background:var(--raised); }
 .hc-co { font-size:14px; font-weight:600; color:var(--bright); margin-bottom:3px; }
 .hc-meta { font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--muted); }
 .hc-right { text-align:right; }
 .hc-score { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; }
 .hc-hype { font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--muted); margin-top:1px; }
-
-/* ── FOOTER ── */
-.footer {
-  border-top: 1px solid var(--border); padding: 20px 32px;
-  display: flex; justify-content: space-between;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  color: var(--muted); letter-spacing: .06em;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes scan-reveal {
-  from { opacity:0; transform:translateY(12px); clip-path:inset(0 0 100% 0); }
-  to   { opacity:1; transform:translateY(0);    clip-path:inset(0 0 0% 0); }
-}
+.footer { border-top: 1px solid var(--border); padding: 20px 32px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: .06em; }
+@keyframes scan-reveal { from { opacity:0; transform:translateY(12px); clip-path:inset(0 0 100% 0); } to { opacity:1; transform:translateY(0); clip-path:inset(0 0 0% 0); } }
 .reveal { animation: scan-reveal .5s cubic-bezier(.4,0,.2,1) forwards; opacity:0; }
 .r1{animation-delay:.05s;}.r2{animation-delay:.12s;}.r3{animation-delay:.19s;}
 .r4{animation-delay:.26s;}.r5{animation-delay:.33s;}.r6{animation-delay:.4s;}
 .r7{animation-delay:.47s;}.r8{animation-delay:.54s;}.r9{animation-delay:.61s;}
 
+/* ═══════════════════════════════════════════════════════════
+   METHODOLOGY PAGE — Full visual walkthrough
+═══════════════════════════════════════════════════════════ */
+.methodology-section {
+  display: none;
+  padding: 0 32px 80px;
+  position: relative;
+}
+.methodology-section.on { display: block; }
+
+/* Hero band */
+.meth-hero {
+  padding: 52px 0 48px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+}
+.meth-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(0,212,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.meth-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.meth-eyebrow::before { content:''; width:28px; height:1px; background:var(--cyan); }
+.meth-eyebrow::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent); }
+.meth-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 72px);
+  font-weight: 400; line-height: 1.05;
+  letter-spacing: -.02em; color: var(--white);
+  margin-bottom: 16px;
+}
+.meth-title em { font-style: italic; color: var(--cyan); }
+.meth-subtitle {
+  font-size: 15px; color: var(--muted); line-height: 1.8;
+  max-width: 680px;
+}
+.meth-meta-row {
+  display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap;
+}
+.meth-meta-chip {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 6px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--soft);
+}
+.meth-meta-chip span { color: var(--cyan); }
+
+/* Section headers */
+.meth-section-head {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 32px;
+}
+.meth-sec-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: .15em;
+  color: var(--cyan); background: var(--cyan3);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 6px 12px; border-radius: 4px;
+  white-space: nowrap;
+}
+.meth-sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-style: italic; color: var(--white);
+}
+.meth-sec-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── PIPELINE FLOW DIAGRAM ── */
+.pipeline-diagram {
+  margin-bottom: 60px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.pipeline-diagram::before {
+  content: '';
+  position: absolute; top:0; left:0; right:0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), transparent);
+}
+.pd-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 36px;
+  display: flex; align-items: center; gap: 10px;
+}
+.pd-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.pipeline-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.pf-stage {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 140px; flex: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.pf-stage.visible { opacity: 1; transform: translateY(0); }
+
+.pf-node {
+  width: 80px; height: 80px; border-radius: 16px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 4px; cursor: default;
+  position: relative; transition: all .3s;
+  border: 1px solid var(--border2);
+  background: var(--deep);
+}
+.pf-node:hover { transform: translateY(-4px); }
+.pf-node-icon { font-size: 24px; line-height: 1; }
+.pf-node-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); text-align: center; line-height: 1.4;
+}
+.pf-node.webhook { border-color: rgba(0,212,255,.3); background: rgba(0,212,255,.04); box-shadow: 0 0 20px rgba(0,212,255,.1); }
+.pf-node.validate { border-color: rgba(0,212,255,.2); }
+.pf-node.fetch { border-color: rgba(255,184,0,.3); background: rgba(255,184,0,.03); }
+.pf-node.annual { border-color: rgba(157,125,255,.4); background: rgba(157,125,255,.05); box-shadow: 0 0 16px rgba(157,125,255,.12); }
+.pf-node.context { border-color: rgba(0,229,116,.3); background: rgba(0,229,116,.03); }
+.pf-node.groq1 { border-color: rgba(0,212,255,.5); background: rgba(0,212,255,.06); box-shadow: 0 0 24px rgba(0,212,255,.15); }
+.pf-node.groq2 { border-color: rgba(255,77,106,.3); background: rgba(255,77,106,.04); }
+.pf-node.output { border-color: rgba(0,229,116,.4); background: rgba(0,229,116,.05); box-shadow: 0 0 20px rgba(0,229,116,.1); }
+
+.pf-node-glow {
+  position: absolute; inset: -1px; border-radius: 17px;
+  opacity: 0; transition: opacity .3s;
+}
+.pf-node:hover .pf-node-glow { opacity: 1; }
+.pf-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--soft); text-align: center;
+  margin-top: 10px; letter-spacing: .04em; line-height: 1.5;
+  max-width: 120px;
+}
+.pf-sub {
+  font-size: 11px; color: var(--muted); text-align: center;
+  margin-top: 4px; line-height: 1.4; max-width: 120px;
+}
+
+.pf-arrow {
+  display: flex; align-items: center; padding-top: 28px;
+  flex-shrink: 0;
+}
+.pf-arrow-line {
+  width: 32px; height: 1px;
+  background: linear-gradient(90deg, var(--border2), var(--dim));
+  position: relative;
+}
+.pf-arrow-line::after {
+  content: '';
+  position: absolute; right: -4px; top: -3px;
+  border: 3px solid transparent;
+  border-left-color: var(--dim);
+}
+.pf-arrow-line.hot { background: linear-gradient(90deg, var(--cyan), rgba(0,212,255,.3)); }
+.pf-arrow-line.hot::after { border-left-color: var(--cyan); }
+
+/* Fan-out section */
+.pf-fanout {
+  display: flex; flex-direction: column; gap: 8px;
+  min-width: 130px; flex-shrink: 0;
+}
+.pf-fanout-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.pf-src-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: .06em; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted); white-space: nowrap;
+  transition: all .3s;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity .5s ease, transform .5s ease, border-color .2s, color .2s;
+}
+.pf-src-chip.visible { opacity: 1; transform: translateX(0); }
+.pf-src-chip.annual-chip { border-color: rgba(157,125,255,.4); color: var(--violet); background: rgba(157,125,255,.05); }
+.pf-src-chip.wiki-chip { border-color: rgba(0,212,255,.25); color: var(--cyan2); }
+.pf-src-chip.news-chip { border-color: rgba(255,184,0,.25); color: #cc9200; }
+.pf-src-chip.pdf-chip { border-color: rgba(0,229,116,.25); color: #00b85c; }
+.pf-src-chip.web-chip { border-color: rgba(255,77,106,.25); color: #cc3d56; }
+
+/* Pulse animation on active nodes */
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,212,255,.1); }
+  50% { box-shadow: 0 0 32px rgba(0,212,255,.3), 0 0 60px rgba(0,212,255,.1); }
+}
+.pf-node.active-pulse { animation: node-pulse 2.5s ease-in-out infinite; }
+
+/* ── TRUST HIERARCHY ── */
+.trust-ladder {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 56px;
+}
+.trust-rung {
+  display: flex; align-items: stretch; gap: 0;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border);
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.trust-rung.visible { opacity: 1; transform: translateX(0); }
+.trust-rung:hover { border-color: var(--border2); }
+
+.tr-priority {
+  width: 44px; min-height: 72px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+  flex-shrink: 0;
+}
+.tr-trust-bar {
+  width: 100px; display: flex; align-items: center; justify-content: center;
+  padding: 0 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 700; flex-shrink: 0;
+}
+.tr-info { flex: 1; padding: 16px 20px; background: var(--surface); }
+.tr-name { font-weight: 700; font-size: 14px; color: var(--bright); margin-bottom: 4px; }
+.tr-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.tr-budget { padding: 16px 20px; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; background: var(--surface); border-left: 1px solid var(--border); min-width: 160px; }
+.tr-budget-n { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--bright); }
+.tr-budget-l { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 2px; }
+
+/* priority colours */
+.tr-p1 { background: rgba(0,229,116,.1); }
+.tr-p1 .tr-priority { color: var(--green); }
+.tr-p1 .tr-trust-bar { background: rgba(0,229,116,.08); color: var(--green); border-right: 1px solid rgba(0,229,116,.2); }
+.tr-p2 { background: rgba(0,212,255,.06); }
+.tr-p2 .tr-priority { color: var(--cyan); }
+.tr-p2 .tr-trust-bar { background: rgba(255,184,0,.08); color: var(--amber); border-right: 1px solid rgba(255,184,0,.2); }
+.tr-p3 { background: var(--raised); }
+.tr-p3 .tr-priority { color: var(--soft); }
+.tr-p3 .tr-trust-bar { background: rgba(255,77,106,.06); color: var(--rose); border-right: 1px solid rgba(255,77,106,.2); }
+.tr-p4, .tr-p5 { background: var(--deep); }
+.tr-p4 .tr-priority, .tr-p5 .tr-priority { color: var(--muted); }
+.tr-p4 .tr-trust-bar, .tr-p5 .tr-trust-bar { background: var(--raised); color: var(--muted); border-right: 1px solid var(--border); }
+
+/* ── SCORING DIMENSIONS ── */
+.dimensions-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 40px;
+}
+.dim-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r2); padding: 24px;
+  position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+  cursor: default;
+}
+.dim-card.visible { opacity: 1; transform: translateY(0); }
+.dim-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.dim-card::before { content:''; position:absolute; top:0;left:0;bottom:0; width:3px; border-radius:2px; }
+
+.dim-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.dim-card-name { font-weight: 700; font-size: 15px; color: var(--bright); }
+.dim-card-weight {
+  font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700;
+  opacity: .9;
+}
+.dim-card-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+.dim-card-bar { height: 4px; background: var(--border2); border-radius: 2px; overflow: hidden; }
+.dim-bar-animated { height: 100%; border-radius: 2px; width: 0%; transition: width 1.4s cubic-bezier(.4,0,.2,1); }
+
+.dc-1::before { background: #00d4ff; }
+.dc-1 .dim-card-weight { color: #00d4ff; }
+.dc-1 .dim-bar-animated { background: #00d4ff; }
+.dc-2::before { background: #00e574; }
+.dc-2 .dim-card-weight { color: #00e574; }
+.dc-2 .dim-bar-animated { background: #00e574; }
+.dc-3::before { background: #9d7dff; }
+.dc-3 .dim-card-weight { color: #9d7dff; }
+.dc-3 .dim-bar-animated { background: #9d7dff; }
+.dc-4::before { background: #ffb800; }
+.dc-4 .dim-card-weight { color: #ffb800; }
+.dc-4 .dim-bar-animated { background: #ffb800; }
+.dc-5::before { background: #ff8c42; }
+.dc-5 .dim-card-weight { color: #ff8c42; }
+.dc-5 .dim-bar-animated { background: #ff8c42; }
+.dc-6::before { background: #ff4d6a; }
+.dc-6 .dim-card-weight { color: #ff4d6a; }
+.dc-6 .dim-bar-animated { background: #ff4d6a; }
+
+/* ── FORMULA BLOCK ── */
+.formula-block {
+  background: var(--deep); border: 1px solid var(--border2);
+  border-radius: var(--r); padding: 36px 40px;
+  margin-bottom: 40px; position: relative;
+  font-family: 'JetBrains Mono', monospace;
+}
+.formula-block::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background: linear-gradient(90deg, transparent, var(--violet), transparent); }
+.fb-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.fb-formula {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: var(--bright); line-height: 2.2;
+  letter-spacing: .02em;
+}
+.fb-formula .fterm { color: var(--cyan); }
+.fb-formula .fop { color: var(--muted); }
+.fb-formula .fw { color: var(--amber); font-size: .85em; }
+.fb-formula .fdiv { color: var(--violet); }
+.fb-formula .feq { color: var(--green); }
+.fb-result { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+
+/* ── GRADE SCALE ── */
+.grade-row {
+  display: flex; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;
+}
+.grade-tile {
+  flex: 1; min-width: 120px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 16px;
+  text-align: center; position: relative; overflow: hidden;
+  transition: all .25s;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease, border-color .2s, box-shadow .2s;
+}
+.grade-tile.visible { opacity: 1; transform: translateY(0); }
+.grade-tile:hover { transform: translateY(-4px) scale(1.02); }
+.gt-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px; font-weight: 700; line-height: 1;
+  margin-bottom: 6px;
+}
+.gt-range { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.gt-label { font-size: 13px; color: var(--soft); line-height: 1.5; }
+.gt-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; transition: all .3s; }
+.grade-tile:hover .gt-bar { height: 5px; }
+
+.gt-A { border-color: rgba(0,229,116,.25); }
+.gt-A .gt-letter { color: var(--green); }
+.gt-A .gt-bar { background: var(--green); }
+.gt-A:hover { border-color: rgba(0,229,116,.5); box-shadow: 0 8px 32px rgba(0,229,116,.1); }
+.gt-B { border-color: rgba(0,212,255,.2); }
+.gt-B .gt-letter { color: var(--cyan); }
+.gt-B .gt-bar { background: var(--cyan); }
+.gt-B:hover { border-color: rgba(0,212,255,.4); box-shadow: 0 8px 32px rgba(0,212,255,.1); }
+.gt-C { border-color: rgba(255,184,0,.2); }
+.gt-C .gt-letter { color: var(--amber); }
+.gt-C .gt-bar { background: var(--amber); }
+.gt-C:hover { border-color: rgba(255,184,0,.4); box-shadow: 0 8px 32px rgba(255,184,0,.1); }
+.gt-D { border-color: rgba(255,140,66,.2); }
+.gt-D .gt-letter { color: #ff8c42; }
+.gt-D .gt-bar { background: #ff8c42; }
+.gt-D:hover { border-color: rgba(255,140,66,.4); box-shadow: 0 8px 32px rgba(255,140,66,.1); }
+.gt-F { border-color: rgba(255,77,106,.2); }
+.gt-F .gt-letter { color: var(--rose); }
+.gt-F .gt-bar { background: var(--rose); }
+.gt-F:hover { border-color: rgba(255,77,106,.4); box-shadow: 0 8px 32px rgba(255,77,106,.1); }
+
+/* ── HYPE FRAMEWORK ── */
+.hype-framework {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  gap: 12px; margin-bottom: 40px;
+}
+.hf-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 16px;
+  transition: all .25s;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .5s ease, transform .5s ease, border-color .2s;
+}
+.hf-card.visible { opacity: 1; transform: translateY(0); }
+.hf-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+.hf-num { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 10px; }
+.hf-name { font-weight: 700; font-size: 13px; color: var(--bright); margin-bottom: 12px; line-height: 1.4; }
+.hf-scores { display: flex; flex-direction: column; gap: 6px; }
+.hf-score-row { display: flex; align-items: center; gap: 8px; }
+.hf-score-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.hf-score-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+/* ── HYPE LABELS ── */
+.hype-labels-row {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 14px; margin-bottom: 56px;
+}
+.hl-card {
+  border-radius: 12px; padding: 24px;
+  text-align: center; position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .5s ease, transform .5s ease, box-shadow .25s;
+}
+.hl-card.visible { opacity: 1; transform: translateY(0); }
+.hl-card:hover { transform: translateY(-4px); }
+.hl-range { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.hl-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+.hl-desc { font-size: 13px; line-height: 1.7; }
+.hl-low { background: rgba(0,229,116,.05); border: 1px solid rgba(0,229,116,.25); }
+.hl-low .hl-range, .hl-low .hl-label { color: var(--green); }
+.hl-low:hover { box-shadow: 0 8px 40px rgba(0,229,116,.12); }
+.hl-some { background: rgba(255,184,0,.05); border: 1px solid rgba(255,184,0,.25); }
+.hl-some .hl-range, .hl-some .hl-label { color: var(--amber); }
+.hl-some:hover { box-shadow: 0 8px 40px rgba(255,184,0,.12); }
+.hl-high { background: rgba(255,77,106,.05); border: 1px solid rgba(255,77,106,.25); }
+.hl-high .hl-range, .hl-high .hl-label { color: var(--rose); }
+.hl-high:hover { box-shadow: 0 8px 40px rgba(255,77,106,.12); }
+
+/* ── TWO PASS EXPLAINER ── */
+.two-pass-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin-bottom: 56px;
+}
+.pass-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 32px;
+  position: relative; overflow: hidden;
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.pass-card.p2 { transform: translateX(20px); }
+.pass-card.visible { opacity: 1; transform: translateX(0); }
+.pass-card::before { content: ''; position:absolute; top:0;left:0;right:0; height:2px; }
+.pc-1::before { background: linear-gradient(90deg, transparent, var(--cyan), transparent); }
+.pc-2::before { background: linear-gradient(90deg, transparent, var(--rose), transparent); }
+.pass-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.pass-title { font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; color: var(--white); margin-bottom: 8px; }
+.pc-1 .pass-title em { color: var(--cyan); }
+.pc-2 .pass-title em { color: var(--rose); }
+.pass-desc { font-size: 14px; color: var(--soft); line-height: 1.75; margin-bottom: 20px; }
+.pass-stats { display: flex; gap: 20px; }
+.ps-stat { }
+.ps-n { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; }
+.pc-1 .ps-n { color: var(--cyan); }
+.pc-2 .ps-n { color: var(--rose); }
+.ps-l { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+.pass-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 60px;
+  font-size: 28px; color: var(--muted);
+  transition: color .3s;
+}
+
+/* ── READING GUIDE ── */
+.reading-guide {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 36px;
+  margin-bottom: 56px;
+}
+.rg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.rg-scenario {
+  background: var(--deep); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px;
+  border-left: 3px solid;
+}
+.rg-scenario-combo { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rg-badge { padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.rg-arrow { color: var(--muted); }
+.rg-scenario-desc { font-size: 13px; color: var(--soft); line-height: 1.7; }
+
+.meth-spacer { height: 60px; }
+
+/* Scroll-triggered reveal */
+.meth-scroll-reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.meth-scroll-reveal.in-view { opacity: 1; transform: translateY(0); }
+
 @media(max-width:1100px){
-  .bento { grid-template-columns:1fr 1fr 1fr; }
-  .score-tower { grid-column:1; grid-row:1/2; }
-  .hype-card { grid-column:2/4; grid-row:1; }
-  .maturity-card { grid-column:1; grid-row:2; }
-  .radar-card { grid-column:2; grid-row:2; }
-  .dims-card { grid-column:3; grid-row:2; }
-  .sr-card { grid-column:1/4; grid-row:3; }
-  .gap-card { grid-column:1/3; grid-row:4; }
-  .evidence-card { grid-column:3; grid-row:4; }
-  .sources-card { grid-column:1/4; grid-row:5; }
-  .analyst-bar { grid-column:1/4; grid-row:6; }
+  .pipeline-flow { flex-wrap: wrap; }
+  .dimensions-grid { grid-template-columns: 1fr; }
+  .hype-framework { grid-template-columns: repeat(2,1fr); }
+  .two-pass-layout { grid-template-columns: 1fr; }
+  .rg-grid { grid-template-columns: 1fr; }
 }
 @media(max-width:768px){
-  .input-section { grid-template-columns:1fr; }
-  .bento { grid-template-columns:1fr; }
+  .hype-framework { grid-template-columns: 1fr 1fr; }
+  .grade-row { flex-direction: column; }
+  .bento { grid-template-columns: 1fr; }
   .score-tower,.hype-card,.maturity-card,.radar-card,.dims-card,.sr-card,.gap-card,.evidence-card,.sources-card,.analyst-bar { grid-column:1; grid-row:auto; }
   .outcomes-claims { grid-template-columns:1fr; }
   .hype-dims-row { grid-template-columns:1fr 1fr; }
-  .nav,.input-section,.results,.footer,.history-section { padding-left:16px; padding-right:16px; }
+  .nav,.input-section,.results,.footer,.history-section,.methodology-section { padding-left:16px; padding-right:16px; }
   .wh-drawer { padding-left:16px; padding-right:16px; }
 }
 </style>
@@ -754,12 +914,10 @@ body::after {
 <div id="cur2"></div>
 <div id="cur3"></div>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner" id="ticker"></div>
 </div>
 
-<!-- LOADING -->
 <div class="loading-screen" id="loadScreen">
   <div class="load-scanner">
     <div class="scan-ring sr1"></div><div class="scan-ring sr2"></div><div class="scan-ring sr3"></div>
@@ -776,7 +934,6 @@ body::after {
   <div class="load-note" id="loadNote">Running dual Groq passes — 70B capability + credibility audit</div>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-left">
     <div class="nav-logo">
@@ -786,8 +943,9 @@ body::after {
     </div>
     <div class="nav-divider"></div>
     <div class="nav-tabs">
-      <div class="ntab on" onclick="showAnalyze()">Analyze</div>
-      <div class="ntab" onclick="showHistory()">History</div>
+      <div class="ntab on" id="tabAnalyze" onclick="showAnalyze()">Analyze</div>
+      <div class="ntab" id="tabMethodology" onclick="showMethodology()">Methodology</div>
+      <div class="ntab" id="tabHistory" onclick="showHistory()">History</div>
     </div>
   </div>
   <div class="nav-right">
@@ -796,10 +954,9 @@ body::after {
   </div>
 </nav>
 
-<!-- WEBHOOK DRAWER -->
 <div class="wh-drawer" id="whDrawer">
   <span class="wh-lbl"><em>⬡</em> n8n Webhook</span>
-  <input type="text" id="whInput" class="wh-input" placeholder="https://xxxx.ngrok-free.app/webhook/analyze-company-v3"/>
+  <input type="text" id="whInput" class="wh-input" placeholder="https://xxxx.ngrok-free.app/webhook/analyze-company"/>
   <button class="wh-save" onclick="saveWH()">Connect</button>
   <span class="wh-status" id="whStatus"></span>
 </div>
@@ -810,12 +967,8 @@ body::after {
   <div class="input-section" id="inputSection">
     <div class="input-hero">
       <div class="input-eyebrow">Signal Intelligence Platform</div>
-      <h1 class="input-heading">
-        Decode any company's<br><em>AI reality</em>
-      </h1>
-      <p class="input-sub">
-        Enter a company name. Vayana gathers from Wikipedia, news, YouTube and annual reports — then runs two independent Groq 70B passes: capability scoring + AIWithoutTheHype credibility audit. Signal/Strata maturity tracking included.
-      </p>
+      <h1 class="input-heading">Decode any company's<br><em>AI reality</em></h1>
+      <p class="input-sub">Enter a company name. Vayana gathers from Wikipedia, news, YouTube and annual reports — then runs two independent Groq 70B passes: capability scoring + AIWithoutTheHype credibility audit. Signal/Strata maturity tracking included.</p>
       <div class="stat-row">
         <div class="stat-item"><div class="stat-n"><em>6</em></div><div class="stat-l">Cap Dims</div></div>
         <div class="stat-item"><div class="stat-n"><em>5</em></div><div class="stat-l">Hype Dims</div></div>
@@ -823,7 +976,6 @@ body::after {
         <div class="stat-item"><div class="stat-n"><em>60k</em></div><div class="stat-l">Context</div></div>
       </div>
     </div>
-
     <div class="input-card">
       <div class="ic-head">
         <span class="ic-title">// new_analysis.init</span>
@@ -831,7 +983,6 @@ body::after {
       </div>
       <div class="ic-body">
         <input type="text" id="companyInput" class="company-input" placeholder="Company name…" autocomplete="off" onkeydown="if(event.key==='Enter')doAnalyze()"/>
-
         <div class="qrow">
           <span class="ql">QUICK →</span>
           <button class="qpick" onclick="qf('Fractal Analytics','','https://fractal.ai/investor-relations','')">Fractal</button>
@@ -840,13 +991,11 @@ body::after {
           <button class="qpick" onclick="qf('TCS','','https://www.tcs.com/investor-relations','')">TCS</button>
           <button class="qpick" onclick="qf('Mu Sigma','','https://www.mu-sigma.com/','')">Mu Sigma</button>
         </div>
-
         <div class="mode-row">
           <div class="mode-opt sel" id="mAuto" onclick="setMode('auto')"><div class="mo-icon">🌐</div><span class="mo-lbl">Auto</span></div>
           <div class="mode-opt" id="mBoth" onclick="setMode('both')"><div class="mo-icon">⚡</div><span class="mo-lbl">Both</span></div>
           <div class="mode-opt" id="mProvided" onclick="setMode('provided')"><div class="mo-icon">📎</div><span class="mo-lbl">Provided</span></div>
         </div>
-
         <div class="exp-fields" id="expFields">
           <div class="field-group">
             <div class="field-label">Annual Report URL <span class="trust-star">★ HIGHEST TRUST</span></div>
@@ -865,16 +1014,13 @@ body::after {
             <input type="text" id="yearInput" class="field-input" style="max-width:110px;" placeholder="2024"/>
           </div>
         </div>
-
         <div class="src-status auto" id="srcStatus">
           <span>🌐</span><span id="srcStatusTxt">Auto — Wikipedia · DuckDuckGo · Google News · YouTube</span>
         </div>
-
         <button class="analyze-btn" id="analyzeBtn" onclick="doAnalyze()">
           <span>Run Signal Analysis</span>
           <span class="btn-arrow">→</span>
         </button>
-
         <div class="err-box" id="errBox">
           <div class="err-title">⚠ Analysis Failed</div>
           <div class="err-msg" id="errMsg"></div>
@@ -885,8 +1031,6 @@ body::after {
 
   <!-- RESULTS -->
   <div class="results" id="resultsSection">
-
-    <!-- COMMAND BAR -->
     <div class="cmd-bar">
       <div>
         <div class="cmd-company">
@@ -905,11 +1049,7 @@ body::after {
         <button class="ca-btn primary" onclick="goBack()">← New Analysis</button>
       </div>
     </div>
-
-    <!-- BENTO GRID -->
     <div class="bento">
-
-      <!-- SCORE TOWER -->
       <div class="score-tower reveal r1">
         <div class="st-label">AI Capability Score</div>
         <div class="score-ring-wrap">
@@ -927,8 +1067,6 @@ body::after {
         <div class="st-divider"></div>
         <div class="st-mini-stats" id="stMiniStats"></div>
       </div>
-
-      <!-- HYPE GAUGE -->
       <div class="hype-card reveal r2" id="hypeCard">
         <div class="hc-head">
           <div class="hc-title-wrap">
@@ -951,28 +1089,20 @@ body::after {
         </div>
         <div class="hype-dims-row" id="hypeDimsRow"></div>
       </div>
-
-      <!-- MATURITY -->
       <div class="maturity-card reveal r3">
         <div class="mc-label">Signal/Strata Maturity</div>
         <div class="maturity-stage" id="maturityStage">—</div>
         <div class="mat-track" id="matTrack"></div>
         <div class="mc-counts" id="mcCounts"></div>
       </div>
-
-      <!-- RADAR -->
       <div class="radar-card reveal r4">
         <div class="card-title">Capability Radar</div>
         <div class="radar-wrap"><canvas id="radarCanvas"></canvas></div>
       </div>
-
-      <!-- DIMENSIONS -->
       <div class="dims-card reveal r5">
         <div class="card-title">Dimension Scores</div>
         <div class="dim-list" id="dimList"></div>
       </div>
-
-      <!-- STRENGTHS/RISKS -->
       <div class="sr-card reveal r6">
         <div class="sr-section">
           <div class="sr-title sr-str">↑ Strengths</div>
@@ -983,8 +1113,6 @@ body::after {
           <ul class="sr-list" id="riskList"></ul>
         </div>
       </div>
-
-      <!-- GAP ANALYSIS -->
       <div class="gap-card reveal r7">
         <div class="gap-card-inner">
           <div class="gap-eyebrow">⟷ Narrative vs Outcome Gap</div>
@@ -1001,28 +1129,21 @@ body::after {
           </div>
         </div>
       </div>
-
-      <!-- EVIDENCE -->
       <div class="evidence-card reveal r8">
         <div class="card-title">Evidence by Dimension</div>
         <div class="ev-list" id="evList"></div>
       </div>
-
-      <!-- SOURCES -->
       <div class="sources-card reveal r9">
         <div class="card-title">Data Sources & References</div>
         <div class="src-grid" id="srcGrid"></div>
       </div>
-
-      <!-- ANALYST NOTE -->
       <div class="analyst-bar reveal r9">
         <span class="ab-icon">💬</span>
         <span class="ab-label">Analyst Note</span>
         <span class="ab-text" id="analystNote">—</span>
       </div>
-
-    </div><!-- /bento -->
-  </div><!-- /results -->
+    </div>
+  </div>
 
   <!-- HISTORY -->
   <div class="history-section" id="histSection">
@@ -1030,12 +1151,487 @@ body::after {
     <div class="hist-grid" id="histGrid"></div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════
+       METHODOLOGY PAGE
+  ═══════════════════════════════════════════════════════ -->
+  <div class="methodology-section" id="methSection">
+
+    <!-- HERO -->
+    <div class="meth-hero">
+      <div class="meth-eyebrow">Process Architecture & Scoring Methodology</div>
+      <h1 class="meth-title">How the <em>Signal</em><br>is built</h1>
+      <p class="meth-subtitle">A full walkthrough of the AI Capability Assessment Workflow — from webhook to dual-pass Groq scoring. Every data source, weighting decision, and credibility check explained.</p>
+      <div class="meth-meta-row">
+        <div class="meth-meta-chip">Platform <span>n8n Workflow Engine</span></div>
+        <div class="meth-meta-chip">Model <span>LLaMA 3.3-70B-Versatile</span></div>
+        <div class="meth-meta-chip">Sources <span>5 parallel channels</span></div>
+        <div class="meth-meta-chip">Passes <span>Capability + Hype Audit</span></div>
+        <div class="meth-meta-chip">Context <span>~30k chars / 8k tokens</span></div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 1: PIPELINE FLOW ── -->
+    <div class="meth-scroll-reveal">
+      <div class="meth-section-head">
+        <span class="meth-sec-num">01</span>
+        <span class="meth-sec-title">System <em>Architecture</em></span>
+        <div class="meth-sec-line"></div>
+      </div>
+    </div>
+
+    <div class="pipeline-diagram meth-scroll-reveal">
+      <div class="pd-label">Workflow DAG — Directed Acyclic Graph</div>
+      <div class="pipeline-flow" id="pipelineFlow">
+
+        <!-- Webhook -->
+        <div class="pf-stage" id="pfs0">
+          <div class="pf-node webhook active-pulse">
+            <div class="pf-node-icon">⬡</div>
+            <div class="pf-node-label">Entry</div>
+          </div>
+          <div class="pf-name">Dashboard<br>Webhook</div>
+          <div class="pf-sub">POST /analyze-company</div>
+        </div>
+
+        <div class="pf-arrow"><div class="pf-arrow-line hot"></div></div>
+
+        <!-- Validate -->
+        <div class="pf-stage" id="pfs1">
+          <div class="pf-node validate">
+            <div class="pf-node-icon">✓</div>
+            <div class="pf-node-label">Validate</div>
+          </div>
+          <div class="pf-name">Validate Input</div>
+          <div class="pf-sub">Normalise · URL map · Request ID</div>
+        </div>
+
+        <div class="pf-arrow"><div class="pf-arrow-line hot"></div></div>
+
+        <!-- Fan-out sources -->
+        <div class="pf-stage" id="pfs2">
+          <div class="pf-fanout">
+            <div class="pf-fanout-row"><div class="pf-src-chip annual-chip" id="chip0">📋 Annual Report ★</div></div>
+            <div class="pf-fanout-row"><div class="pf-src-chip wiki-chip" id="chip1">📖 Wikipedia</div></div>
+            <div class="pf-fanout-row"><div class="pf-src-chip news-chip" id="chip2">📰 Google News</div></div>
+            <div class="pf-fanout-row"><div class="pf-src-chip pdf-chip" id="chip3">📄 PDF / Deck</div></div>
+            <div class="pf-fanout-row"><div class="pf-src-chip web-chip" id="chip4">🌐 Website</div></div>
+          </div>
+          <div class="pf-name" style="margin-top:10px">5 Parallel<br>Sources</div>
+          <div class="pf-sub">Concurrent fetch · neverError</div>
+        </div>
+
+        <div class="pf-arrow"><div class="pf-arrow-line hot"></div></div>
+
+        <!-- Context -->
+        <div class="pf-stage" id="pfs3">
+          <div class="pf-node context">
+            <div class="pf-node-icon">◈</div>
+            <div class="pf-node-label">Context</div>
+          </div>
+          <div class="pf-name">Build Master<br>Context</div>
+          <div class="pf-sub">Token budget · Priority merge</div>
+        </div>
+
+        <div class="pf-arrow"><div class="pf-arrow-line hot"></div></div>
+
+        <!-- Pass 1 -->
+        <div class="pf-stage" id="pfs4">
+          <div class="pf-node groq1 active-pulse">
+            <div class="pf-node-icon">🧠</div>
+            <div class="pf-node-label">Pass 1</div>
+          </div>
+          <div class="pf-name">Groq 70B<br>Capability</div>
+          <div class="pf-sub">6 dims · Weighted score</div>
+        </div>
+
+        <div class="pf-arrow"><div class="pf-arrow-line hot"></div></div>
+
+        <!-- Pass 2 -->
+        <div class="pf-stage" id="pfs5">
+          <div class="pf-node groq2">
+            <div class="pf-node-icon">🔍</div>
+            <div class="pf-node-label">Pass 2</div>
+          </div>
+          <div class="pf-name">Groq 70B<br>Hype Audit</div>
+          <div class="pf-sub">5 dims · Credibility score</div>
+        </div>
+
+        <div class="pf-arrow"><div class="pf-arrow-line hot"></div></div>
+
+        <!-- Output -->
+        <div class="pf-stage" id="pfs6">
+          <div class="pf-node output">
+            <div class="pf-node-icon">↗</div>
+            <div class="pf-node-label">Response</div>
+          </div>
+          <div class="pf-name">JSON<br>Response</div>
+          <div class="pf-sub">Webhook · CORS · 200 OK</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SECTION 2: DATA SOURCES ── -->
+    <div class="meth-scroll-reveal">
+      <div class="meth-section-head">
+        <span class="meth-sec-num">02</span>
+        <span class="meth-sec-title">Data Collection <em>Pipeline</em></span>
+        <div class="meth-sec-line"></div>
+      </div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:700px;margin-bottom:32px;">
+        Five parallel sources are fetched concurrently. Each carries an explicit trust level that the AI analyzer uses to weight evidence. The trust hierarchy is the foundation of scoring accuracy — annual reports dominate because they are legally audited board disclosures.
+      </p>
+    </div>
+
+    <div class="trust-ladder">
+      <div class="trust-rung tr-p1" id="tr0">
+        <div class="tr-priority">1</div>
+        <div class="tr-trust-bar">AUDITED</div>
+        <div class="tr-info">
+          <div class="tr-name">📋 Annual Report (Audited Filing)</div>
+          <div class="tr-desc">Legally audited board disclosures. Subject to securities law, independently reviewed, quantified and verifiable. This is the most reliable evidence the system can process.</div>
+        </div>
+        <div class="tr-budget">
+          <div class="tr-budget-n" style="color:var(--green)">16,000</div>
+          <div class="tr-budget-l">chars · priority</div>
+        </div>
+      </div>
+      <div class="trust-rung tr-p2" id="tr1">
+        <div class="tr-priority">2</div>
+        <div class="tr-trust-bar">MEDIUM</div>
+        <div class="tr-info">
+          <div class="tr-name">📄 PDF Prospectus / Investor Deck</div>
+          <div class="tr-desc">Self-reported investor material. More structured than marketing copy but not independently audited. Useful for financial projections and product descriptions.</div>
+        </div>
+        <div class="tr-budget">
+          <div class="tr-budget-n" style="color:var(--amber)">Shared 14k</div>
+          <div class="tr-budget-l">max 4k per source</div>
+        </div>
+      </div>
+      <div class="trust-rung tr-p3" id="tr2">
+        <div class="tr-priority">3</div>
+        <div class="tr-trust-bar">LOW–MED</div>
+        <div class="tr-info">
+          <div class="tr-name">🌐 Company Website</div>
+          <div class="tr-desc">Brand-controlled content. Rich for product discovery and leadership messaging but highly prone to marketing superlatives and unquantified claims.</div>
+        </div>
+        <div class="tr-budget">
+          <div class="tr-budget-n" style="color:var(--rose)">Shared 14k</div>
+          <div class="tr-budget-l">max 4k per source</div>
+        </div>
+      </div>
+      <div class="trust-rung tr-p4" id="tr3">
+        <div class="tr-priority">4</div>
+        <div class="tr-trust-bar">PUBLIC</div>
+        <div class="tr-info">
+          <div class="tr-name">📖 Wikipedia</div>
+          <div class="tr-desc">Neutral third-party encyclopedia. Reliable for factual background, founding history, and public corporate events. Community-moderated reduces single-source bias.</div>
+        </div>
+        <div class="tr-budget">
+          <div class="tr-budget-n">Shared 14k</div>
+          <div class="tr-budget-l">max 4k per source</div>
+        </div>
+      </div>
+      <div class="trust-rung tr-p5" id="tr4">
+        <div class="tr-priority">5</div>
+        <div class="tr-trust-bar">PUBLIC</div>
+        <div class="tr-info">
+          <div class="tr-name">📰 Google News + DuckDuckGo</div>
+          <div class="tr-desc">Real-time signals. Surfaces recent AI announcements, executive moves, and partnership news that may not yet appear in annual reports.</div>
+        </div>
+        <div class="tr-budget">
+          <div class="tr-budget-n">Shared 14k</div>
+          <div class="tr-budget-l">max 4k per source</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: CAPABILITY SCORING ── -->
+    <div class="meth-scroll-reveal">
+      <div class="meth-section-head">
+        <span class="meth-sec-num">03</span>
+        <span class="meth-sec-title">Capability Scoring <em>Pass 1</em></span>
+        <div class="meth-sec-line"></div>
+      </div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:700px;margin-bottom:32px;">
+        A single LLaMA 3.3-70B call at temperature 0.0 scores the company across six weighted dimensions. The bar width below reflects each dimension's weight in the final score.
+      </p>
+    </div>
+
+    <div class="dimensions-grid">
+      <div class="dim-card dc-1" id="dc0">
+        <div class="dim-card-top">
+          <div class="dim-card-name">AI Products & IP</div>
+          <div class="dim-card-weight">25%</div>
+        </div>
+        <div class="dim-card-desc">Proprietary AI platforms, patents, and products deployed at scale. Most heavily weighted — reflects true technological ownership rather than intent or aspiration.</div>
+        <div class="dim-card-bar"><div class="dim-bar-animated" data-w="100"></div></div>
+      </div>
+      <div class="dim-card dc-2" id="dc1">
+        <div class="dim-card-top">
+          <div class="dim-card-name">Talent & Research</div>
+          <div class="dim-card-weight">20%</div>
+        </div>
+        <div class="dim-card-desc">AI team headcount, PhD researchers, peer-reviewed publications, and competitive credentials such as Kaggle leaderboard rankings.</div>
+        <div class="dim-card-bar"><div class="dim-bar-animated" data-w="80"></div></div>
+      </div>
+      <div class="dim-card dc-3" id="dc2">
+        <div class="dim-card-top">
+          <div class="dim-card-name">Client Deployments</div>
+          <div class="dim-card-weight">20%</div>
+        </div>
+        <div class="dim-card-desc">Real enterprise deployments with documented, measurable ROI. Audited evidence is weighted over marketing case studies. The system explicitly distinguishes claimed vs disclosed outcomes.</div>
+        <div class="dim-card-bar"><div class="dim-bar-animated" data-w="80"></div></div>
+      </div>
+      <div class="dim-card dc-4" id="dc3">
+        <div class="dim-card-top">
+          <div class="dim-card-name">AI Infrastructure</div>
+          <div class="dim-card-weight">15%</div>
+        </div>
+        <div class="dim-card-desc">Cloud provider partnerships, MLOps tooling maturity, GPU/TPU infrastructure, and data platform capabilities underpinning AI delivery.</div>
+        <div class="dim-card-bar"><div class="dim-bar-animated" data-w="60"></div></div>
+      </div>
+      <div class="dim-card dc-5" id="dc4">
+        <div class="dim-card-top">
+          <div class="dim-card-name">Leadership Vision</div>
+          <div class="dim-card-weight">10%</div>
+        </div>
+        <div class="dim-card-desc">Board-level AI mandates, executive strategy coherence, and organisational commitment signals — preferencing annual report disclosures over press releases.</div>
+        <div class="dim-card-bar"><div class="dim-bar-animated" data-w="40"></div></div>
+      </div>
+      <div class="dim-card dc-6" id="dc5">
+        <div class="dim-card-top">
+          <div class="dim-card-name">AI Revenue</div>
+          <div class="dim-card-weight">10%</div>
+        </div>
+        <div class="dim-card-desc">Percentage of total revenue from AI services, year-on-year growth trajectory, and disclosed financial metrics. Highest confidence when sourced from audited filings.</div>
+        <div class="dim-card-bar"><div class="dim-bar-animated" data-w="40"></div></div>
+      </div>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="formula-block meth-scroll-reveal">
+      <div class="fb-label">// score_calculation.formula</div>
+      <div class="fb-formula">
+        <span class="feq">overall_score</span> <span class="fop">=</span> <span class="fop">(</span><br>
+        &nbsp;&nbsp;<span class="fterm">ai_products_ip</span> <span class="fop">×</span> <span class="fw">25</span> <span class="fop">+</span>
+        <span class="fterm">talent_research</span> <span class="fop">×</span> <span class="fw">20</span> <span class="fop">+</span>
+        <span class="fterm">client_deployments</span> <span class="fop">×</span> <span class="fw">20</span><br>
+        &nbsp;&nbsp;<span class="fop">+</span> <span class="fterm">ai_infrastructure</span> <span class="fop">×</span> <span class="fw">15</span> <span class="fop">+</span>
+        <span class="fterm">leadership_vision</span> <span class="fop">×</span> <span class="fw">10</span> <span class="fop">+</span>
+        <span class="fterm">ai_revenue</span> <span class="fop">×</span> <span class="fw">10</span><br>
+        <span class="fop">)</span> <span class="fdiv">÷ 10</span>
+      </div>
+      <div class="fb-result">Each dimension is scored 0–10 by the LLM at temperature 0.0. The weighted sum ÷ 10 yields a 0–100 scale score. All scoring is fully deterministic — the same company analysed twice returns identical scores.</div>
+    </div>
+
+    <!-- GRADE SCALE -->
+    <div class="meth-scroll-reveal" style="margin-bottom:16px;">
+      <h3 style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;">Grade Scale</h3>
+    </div>
+    <div class="grade-row">
+      <div class="grade-tile gt-A" id="gt0">
+        <div class="gt-letter">A</div>
+        <div class="gt-range">80 – 100</div>
+        <div class="gt-label">AI-native company with proprietary platforms at scale</div>
+        <div class="gt-bar"></div>
+      </div>
+      <div class="grade-tile gt-B" id="gt1">
+        <div class="gt-letter">B</div>
+        <div class="gt-range">60 – 79</div>
+        <div class="gt-label">Strong adopter with commercial traction and board mandate</div>
+        <div class="gt-bar"></div>
+      </div>
+      <div class="grade-tile gt-C" id="gt2">
+        <div class="gt-letter">C</div>
+        <div class="gt-range">40 – 59</div>
+        <div class="gt-label">Pilots underway, limited measurable outcomes disclosed</div>
+        <div class="gt-bar"></div>
+      </div>
+      <div class="grade-tile gt-D" id="gt3">
+        <div class="gt-letter">D</div>
+        <div class="gt-range">20 – 39</div>
+        <div class="gt-label">Primarily aspirational claims or basic automation</div>
+        <div class="gt-bar"></div>
+      </div>
+      <div class="grade-tile gt-F" id="gt4">
+        <div class="gt-letter">F</div>
+        <div class="gt-range">0 – 19</div>
+        <div class="gt-label">No credible evidence of AI strategy or capability</div>
+        <div class="gt-bar"></div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4: HYPE AUDIT ── -->
+    <div class="meth-spacer"></div>
+    <div class="meth-scroll-reveal">
+      <div class="meth-section-head">
+        <span class="meth-sec-num">04</span>
+        <span class="meth-sec-title">Hype Audit <em>Pass 2</em></span>
+        <div class="meth-sec-line"></div>
+      </div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:700px;margin-bottom:32px;">
+        A second, separate LLM call receives only the distilled findings from Pass 1 — not raw scraped content. This prevents marketing copy from inflating credibility scores. Lower total = more credible evidence base.
+      </p>
+    </div>
+
+    <!-- Two pass cards -->
+    <div class="two-pass-layout meth-scroll-reveal">
+      <div class="pass-card pc-1">
+        <div class="pass-num">// pass_01.groq</div>
+        <div class="pass-title">Capability <em>Score</em></div>
+        <div class="pass-desc">Receives the full master context (~30k chars). Evaluates all available evidence against six weighted dimensions. Produces a structured JSON score with evidence citations and trust levels per dimension.</div>
+        <div class="pass-stats">
+          <div class="ps-stat"><div class="ps-n">6</div><div class="ps-l">Dimensions</div></div>
+          <div class="ps-stat"><div class="ps-n">0–100</div><div class="ps-l">Score Scale</div></div>
+          <div class="ps-stat"><div class="ps-n">3k</div><div class="ps-l">Max Tokens Out</div></div>
+        </div>
+      </div>
+      <div class="pass-card pass-card p2 pc-2">
+        <div class="pass-num">// pass_02.groq</div>
+        <div class="pass-title">Hype <em>Audit</em></div>
+        <div class="pass-desc">Receives only the structured output of Pass 1 — scores, reasoning, and claim lists. No raw sources. Acts as a meta-analysis of evidence quality, not a re-evaluation of raw data. Prevents volume bias.</div>
+        <div class="pass-stats">
+          <div class="ps-stat"><div class="ps-n">5</div><div class="ps-l">Dimensions</div></div>
+          <div class="ps-stat"><div class="ps-n">0–10</div><div class="ps-l">Hype Scale</div></div>
+          <div class="ps-stat"><div class="ps-n">800</div><div class="ps-l">Max Tokens Out</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hype dimensions -->
+    <div class="hype-framework">
+      <div class="hf-card" id="hf0">
+        <div class="hf-num">Dim 01 / 05</div>
+        <div class="hf-name">Claim Evidence</div>
+        <div class="hf-scores">
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--green)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">0</strong> — Audited financial data</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--amber)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">1</strong> — Press releases or exec announcements</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--rose)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">2</strong> — Speculation or analyst projections only</div></div>
+        </div>
+      </div>
+      <div class="hf-card" id="hf1">
+        <div class="hf-num">Dim 02 / 05</div>
+        <div class="hf-name">Generalisation</div>
+        <div class="hf-scores">
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--green)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">0</strong> — Specific, scoped claims with numbers</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--amber)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">1</strong> — Some extrapolation present</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--rose)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">2</strong> — Sweeping sector-level claims</div></div>
+        </div>
+      </div>
+      <div class="hf-card" id="hf2">
+        <div class="hf-num">Dim 03 / 05</div>
+        <div class="hf-name">Timeline Realism</div>
+        <div class="hf-scores">
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--green)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">0</strong> — Grounded roadmaps with milestones</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--amber)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">1</strong> — Optimistic but plausible</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--rose)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">2</strong> — Unrealistic or undefined timelines</div></div>
+        </div>
+      </div>
+      <div class="hf-card" id="hf3">
+        <div class="hf-num">Dim 04 / 05</div>
+        <div class="hf-name">Uncertainty Acknowledgment</div>
+        <div class="hf-scores">
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--green)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">0</strong> — Openly discloses risks and limits</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--amber)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">1</strong> — Partial risk disclosure</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--rose)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">2</strong> — No uncertainty acknowledged</div></div>
+        </div>
+      </div>
+      <div class="hf-card" id="hf4">
+        <div class="hf-num">Dim 05 / 05</div>
+        <div class="hf-name">Conflicts of Interest</div>
+        <div class="hf-scores">
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--green)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">0</strong> — Independent third-party sources</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--amber)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">1</strong> — Exec statements disclosed as such</div></div>
+          <div class="hf-score-row"><div class="hf-score-dot" style="background:var(--rose)"></div><div class="hf-score-desc"><strong style="color:var(--bright)">2</strong> — Marketing-only, no independent validation</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hype labels -->
+    <div class="hype-labels-row">
+      <div class="hl-card hl-low" id="hl0">
+        <div class="hl-range">0 – 3</div>
+        <div class="hl-label">Low Hype</div>
+        <div class="hl-desc" style="color:var(--soft)">High-confidence signal. Capability score likely reflects actual maturity. Suitable for advancing to deeper due diligence.</div>
+      </div>
+      <div class="hl-card hl-some" id="hl1">
+        <div class="hl-range">4 – 6</div>
+        <div class="hl-label">Some Hype</div>
+        <div class="hl-desc" style="color:var(--soft)">Mixed signal. Some claims unverified. Cross-reference with an audited annual report before drawing firm conclusions.</div>
+      </div>
+      <div class="hl-card hl-high" id="hl2">
+        <div class="hl-range">7 – 10</div>
+        <div class="hl-label">High Hype</div>
+        <div class="hl-desc" style="color:var(--soft)">Low confidence. Capability score may be inflated by marketing. Mandatory audited source review required before action.</div>
+      </div>
+    </div>
+
+    <!-- ── READING GUIDE ── -->
+    <div class="meth-scroll-reveal">
+      <div class="meth-section-head">
+        <span class="meth-sec-num">05</span>
+        <span class="meth-sec-title">How to <em>Read</em> Both Scores Together</span>
+        <div class="meth-sec-line"></div>
+      </div>
+    </div>
+
+    <div class="reading-guide meth-scroll-reveal">
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;">The capability score and hype score must be read together. A high capability score only means something when the hype score confirms the evidence was credible. Four key scenarios:</p>
+      <div class="rg-grid">
+        <div class="rg-scenario" style="border-color:var(--green)">
+          <div class="rg-scenario-combo">
+            <span class="rg-badge" style="background:rgba(0,229,116,.1);color:var(--green)">HIGH CAP</span>
+            <span class="rg-arrow">+</span>
+            <span class="rg-badge" style="background:rgba(0,229,116,.1);color:var(--green)">LOW HYPE</span>
+            <span class="rg-arrow">→</span>
+            <span style="color:var(--green);font-weight:700">Strong Signal</span>
+          </div>
+          <div class="rg-scenario-desc">The best outcome. High capability score backed by audited evidence. Evidence base is credible and specific. Suitable for advancing to deeper due diligence or investment thesis.</div>
+        </div>
+        <div class="rg-scenario" style="border-color:var(--amber)">
+          <div class="rg-scenario-combo">
+            <span class="rg-badge" style="background:rgba(0,212,255,.1);color:var(--cyan)">HIGH CAP</span>
+            <span class="rg-arrow">+</span>
+            <span class="rg-badge" style="background:var(--rose2);color:var(--rose)">HIGH HYPE</span>
+            <span class="rg-arrow">→</span>
+            <span style="color:var(--amber);font-weight:700">Verify First</span>
+          </div>
+          <div class="rg-scenario-desc">Claims may be inflated by marketing volume. Score should not be taken at face value. Mandatory: obtain the company's annual report and re-run with annual_report_url provided.</div>
+        </div>
+        <div class="rg-scenario" style="border-color:var(--cyan)">
+          <div class="rg-scenario-combo">
+            <span class="rg-badge" style="background:var(--amber2);color:var(--amber)">LOW CAP</span>
+            <span class="rg-arrow">+</span>
+            <span class="rg-badge" style="background:rgba(0,229,116,.1);color:var(--green)">LOW HYPE</span>
+            <span class="rg-arrow">→</span>
+            <span style="color:var(--cyan);font-weight:700">Honest Assessment</span>
+          </div>
+          <div class="rg-scenario-desc">The company has low AI maturity, but the assessment is credible. The gap is real, not an artefact of data quality. Early-stage or non-AI-focused company.</div>
+        </div>
+        <div class="rg-scenario" style="border-color:var(--muted)">
+          <div class="rg-scenario-combo">
+            <span class="rg-badge" style="background:var(--amber2);color:var(--amber)">ANY CAP</span>
+            <span class="rg-arrow">+</span>
+            <span class="rg-badge" style="background:var(--amber2);color:var(--amber)">NO AUDIT</span>
+            <span class="rg-arrow">→</span>
+            <span style="color:var(--muted);font-weight:700">Incomplete</span>
+          </div>
+          <div class="rg-scenario-desc">Confidence is automatically downgraded when no annual_report_url is provided. Scores reflect public/marketing sources only. Always provide the annual report for definitive scoring.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meth-spacer"></div>
+
+  </div><!-- /methodology-section -->
+
   <div class="footer">
     <span>Vayana Network · Signal Intelligence Platform · v4.0</span>
     <span>Groq 70B · Dual-Pass · Annual Report Intelligence · 2026</span>
   </div>
 
-</div><!-- /page -->
+</div>
 
 <script>
 // ══ CURSOR ══
@@ -1049,7 +1645,7 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.le
 })();
 document.addEventListener('mousedown',()=>{cur.style.transform='translate(-50%,-50%) scale(3)';cur.style.opacity='.6';});
 document.addEventListener('mouseup',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';cur.style.opacity='1';});
-document.querySelectorAll('button,input,a,.mode-opt,.qpick,.hcard').forEach(el=>{
+document.querySelectorAll('button,input,a,.mode-opt,.qpick,.hcard,.dim-card,.grade-tile,.hf-card,.hl-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur2.style.width='44px';cur2.style.height='44px';cur2.style.borderColor='rgba(0,212,255,.7)';});
   el.addEventListener('mouseleave',()=>{cur2.style.width='32px';cur2.style.height='32px';cur2.style.borderColor='rgba(0,212,255,.4)';});
 });
@@ -1179,11 +1775,10 @@ async function doAnalyze(){
       const rawText=await res.text();
       if(!rawText||rawText.trim()==='')throw new Error('n8n returned an empty response.\n① Check the workflow is fully connected with no broken nodes\n② Open n8n executions tab to see the actual error\n③ The hype analyzer node may be failing — check Groq rate limits');
       let parsed;
-      try{ parsed=JSON.parse(rawText); }
-      catch(pe){ 
-        // n8n sometimes wraps in array
-        try{ const arr=JSON.parse('['+rawText+']'); parsed=Array.isArray(arr)?arr[0]:arr; }
-        catch(pe2){ throw new Error('Response was not valid JSON.\nRaw (first 300 chars):\n'+rawText.substring(0,300)); }
+      try{parsed=JSON.parse(rawText);}
+      catch(pe){
+        try{const arr=JSON.parse('['+rawText+']');parsed=Array.isArray(arr)?arr[0]:arr;}
+        catch(pe2){throw new Error('Response was not valid JSON.\nRaw (first 300 chars):\n'+rawText.substring(0,300));}
       }
       result=Array.isArray(parsed)?parsed[0]:parsed;
     }
@@ -1197,62 +1792,20 @@ async function doAnalyze(){
   }
 }
 
-// ══ DEMO DATA ══
 async function makeDemo(co,hasAudit){
   await sleep(5000);
   const sc=Math.floor(Math.random()*28+55);
   const ht=Math.floor(Math.random()*4+1);
-  return{
-    company:co,overall_score:sc,
-    grade:sc>=80?'A':sc>=65?'B':sc>=50?'C':sc>=35?'D':'F',
-    confidence:hasAudit?'high':'medium',
-    confidence_reason:hasAudit?'Annual report provided.':'No audited source — medium confidence.',
-    has_audited_source:hasAudit,
-    executive_summary:`${co} shows ${sc>=65?'strong':'moderate'} AI capability signals. ${hasAudit?'Annual report confirms board-level AI commitment with measurable outcomes.':'No audited source reduces confidence.'}`,
-    dimensions:{
-      ai_products_ip:{score:+(sc/10+.3).toFixed(1),reasoning:'Proprietary AI platform with enterprise traction.',evidence_trust:hasAudit?'audited':'public',evidence:['Internal ML platform at scale','Patent filings in NLP domain','AI product lines in production']},
-      talent_research:{score:+(sc/10+.5).toFixed(1),reasoning:'Large, credentialed data science team.',evidence_trust:'public',evidence:['3000+ data scientists globally','NeurIPS/ICML publications','Active PhD researcher hiring']},
-      client_deployments:{score:+(sc/10-.1).toFixed(1),reasoning:'Enterprise deployments across sectors.',evidence_trust:hasAudit?'mixed':'public',evidence:['Fortune 500 retail AI engine','Healthcare diagnostics system','Manufacturing predictive maintenance']},
-      ai_infrastructure:{score:+(sc/10-.2).toFixed(1),reasoning:'Cloud-native with hyperscaler partnerships.',evidence_trust:'public',evidence:['AWS & Azure strategic partner','Internal MLOps platform','GPU cluster investments confirmed']},
-      leadership_vision:{score:+(sc/10+.7).toFixed(1),reasoning:'CEO publicly leads AI-first mandate.',evidence_trust:hasAudit?'audited':'public',evidence:['CEO keynote at WEF 2024','AI-first board mandate issued','Annual report AI strategy section']},
-      ai_revenue:{score:+(sc/10-.1).toFixed(1),reasoning:'Growing AI revenue share YoY.',evidence_trust:hasAudit?'audited':'public',evidence:['~65% revenue from AI/analytics','30%+ YoY AI deal TCV growth','New AI SaaS product lines launched']},
-    },
-    measurable_outcomes:hasAudit?['£22M efficiency gain disclosed in annual report','AI team headcount +40% YoY per filing']:['No audited measurable outcomes found'],
-    claims_without_evidence:['Claims AI will transform all client verticals by 2026','Stated full cloud migration by 2025 — unverified'],
-    strengths:['Proprietary AI platform with enterprise moat','Deep credentialed data science bench','Proven Fortune 500 client ROI'],
-    risks:['Revenue concentration in top 10 clients','Hyperscaler competition intensifying'],
-    hype_score:{
-      total:ht,label:ht<=3?'LOW HYPE':ht<=6?'SOME HYPE':'HIGH HYPE',
-      dimensions:{
-        claim_evidence:{score:ht<=3?0:ht<=6?1:2,reasoning:hasAudit?'Annual report provides audited evidence for key claims.':'Claims rely primarily on press releases.'},
-        generalisation:{score:Math.min(2,Math.floor(ht/3)),reasoning:'Some broad extrapolations from narrow pilots noted.'},
-        timeline_realism:{score:Math.min(2,Math.floor(ht/4)),reasoning:'Most timelines grounded in prior disclosed progress.'},
-        uncertainty_acknowledgment:{score:Math.min(2,Math.floor(ht/4)),reasoning:'Risk factors section addresses limitations.'},
-        conflicts_of_interest:{score:Math.min(2,Math.floor(ht/5)),reasoning:'Sources include executives with disclosed financial stakes.'},
-      },
-      narrative_vs_outcome_gap:hasAudit?'Annual report narrows gap — specific financial outcomes disclosed alongside strategic claims.':'Significant gap between public AI claims and verifiable outcomes — no audited source provided.',
-      audited_outcomes_count:hasAudit?2:0,
-      marketing_claims_count:2,
-      signal_strata_maturity:sc>=70?'measurable_outcomes':sc>=55?'deployed':sc>=42?'in_progress':'pilot',
-      analyst_note:`${co} has ${ht<=3?'well-grounded, evidence-backed':'somewhat hyped'} AI claims. ${hasAudit?'Audited filing confirms key disclosures.':'Recommend providing annual report for higher confidence scoring.'}`,
-    },
-    sources_analyzed:[
-      ...(hasAudit?[{type:'annual_report',url:'',trust:'AUDITED',year:'2024'}]:[]),
-      {type:'wikipedia',url:`https://en.wikipedia.org/wiki/${encodeURIComponent(co)}`,trust:'public'},
-      {type:'duckduckgo',url:'',trust:'public'},{type:'google_news',url:'',trust:'public'},{type:'youtube',url:'',trust:'public'},
-    ],
-    analyzed_at:new Date().toISOString(),tokens_used:4920,fetch_mode:MODE,report_year:'2024',
-  };
+  return{company:co,overall_score:sc,grade:sc>=80?'A':sc>=65?'B':sc>=50?'C':sc>=35?'D':'F',confidence:hasAudit?'high':'medium',confidence_reason:hasAudit?'Annual report provided.':'No audited source — medium confidence.',has_audited_source:hasAudit,executive_summary:`${co} shows ${sc>=65?'strong':'moderate'} AI capability signals. ${hasAudit?'Annual report confirms board-level AI commitment with measurable outcomes.':'No audited source reduces confidence.'}`,dimensions:{ai_products_ip:{score:+(sc/10+.3).toFixed(1),reasoning:'Proprietary AI platform with enterprise traction.',evidence_trust:hasAudit?'audited':'public',evidence:['Internal ML platform at scale','Patent filings in NLP domain','AI product lines in production']},talent_research:{score:+(sc/10+.5).toFixed(1),reasoning:'Large, credentialed data science team.',evidence_trust:'public',evidence:['3000+ data scientists globally','NeurIPS/ICML publications','Active PhD researcher hiring']},client_deployments:{score:+(sc/10-.1).toFixed(1),reasoning:'Enterprise deployments across sectors.',evidence_trust:hasAudit?'mixed':'public',evidence:['Fortune 500 retail AI engine','Healthcare diagnostics system','Manufacturing predictive maintenance']},ai_infrastructure:{score:+(sc/10-.2).toFixed(1),reasoning:'Cloud-native with hyperscaler partnerships.',evidence_trust:'public',evidence:['AWS & Azure strategic partner','Internal MLOps platform','GPU cluster investments confirmed']},leadership_vision:{score:+(sc/10+.7).toFixed(1),reasoning:'CEO publicly leads AI-first mandate.',evidence_trust:hasAudit?'audited':'public',evidence:['CEO keynote at WEF 2024','AI-first board mandate issued','Annual report AI strategy section']},ai_revenue:{score:+(sc/10-.1).toFixed(1),reasoning:'Growing AI revenue share YoY.',evidence_trust:hasAudit?'audited':'public',evidence:['~65% revenue from AI/analytics','30%+ YoY AI deal TCV growth','New AI SaaS product lines launched']}},measurable_outcomes:hasAudit?['£22M efficiency gain disclosed in annual report','AI team headcount +40% YoY per filing']:['No audited measurable outcomes found'],claims_without_evidence:['Claims AI will transform all client verticals by 2026','Stated full cloud migration by 2025 — unverified'],strengths:['Proprietary AI platform with enterprise moat','Deep credentialed data science bench','Proven Fortune 500 client ROI'],risks:['Revenue concentration in top 10 clients','Hyperscaler competition intensifying'],hype_score:{total:ht,label:ht<=3?'LOW HYPE':ht<=6?'SOME HYPE':'HIGH HYPE',dimensions:{claim_evidence:{score:ht<=3?0:ht<=6?1:2,reasoning:hasAudit?'Annual report provides audited evidence for key claims.':'Claims rely primarily on press releases.'},generalisation:{score:Math.min(2,Math.floor(ht/3)),reasoning:'Some broad extrapolations from narrow pilots noted.'},timeline_realism:{score:Math.min(2,Math.floor(ht/4)),reasoning:'Most timelines grounded in prior disclosed progress.'},uncertainty_acknowledgment:{score:Math.min(2,Math.floor(ht/4)),reasoning:'Risk factors section addresses limitations.'},conflicts_of_interest:{score:Math.min(2,Math.floor(ht/5)),reasoning:'Sources include executives with disclosed financial stakes.'}},narrative_vs_outcome_gap:hasAudit?'Annual report narrows gap — specific financial outcomes disclosed alongside strategic claims.':'Significant gap between public AI claims and verifiable outcomes — no audited source provided.',audited_outcomes_count:hasAudit?2:0,marketing_claims_count:2,signal_strata_maturity:sc>=70?'measurable_outcomes':sc>=55?'deployed':sc>=42?'in_progress':'pilot',analyst_note:`${co} has ${ht<=3?'well-grounded, evidence-backed':'somewhat hyped'} AI claims. ${hasAudit?'Audited filing confirms key disclosures.':'Recommend providing annual report for higher confidence scoring.'}`},sources_analyzed:[...(hasAudit?[{type:'annual_report',url:'',trust:'AUDITED',year:'2024'}]:[]),{type:'wikipedia',url:`https://en.wikipedia.org/wiki/${encodeURIComponent(co)}`,trust:'public'},{type:'duckduckgo',url:'',trust:'public'},{type:'google_news',url:'',trust:'public'},{type:'youtube',url:'',trust:'public'}],analyzed_at:new Date().toISOString(),tokens_used:4920,fetch_mode:MODE,report_year:'2024'};
 }
 
 // ══ RENDER RESULTS ══
 function renderResults(data){
   document.getElementById('inputSection').style.display='none';
   document.getElementById('histSection').style.display='none';
+  document.getElementById('methSection').classList.remove('on');
   const rs=document.getElementById('resultsSection');
   rs.classList.add('on');
-
-  // CMD BAR
   document.getElementById('rCompany').textContent=data.company||data.company_name||'—';
   const g=data.grade||'C';
   const gel=document.getElementById('rGrade');gel.textContent=g;gel.className='cmd-grade g'+g;
@@ -1261,89 +1814,47 @@ function renderResults(data){
   document.getElementById('rAudited').style.display=data.has_audited_source?'inline-flex':'none';
   const ts=data.analyzed_at?new Date(data.analyzed_at).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}):new Date().toLocaleString();
   document.getElementById('rTs').textContent=(data.demo_mode?'DEMO · ':'')+ts;
-
-  // SCORE RING
   animateScore(Math.round(data.overall_score||0));
-
-  // Summary + mini stats
   document.getElementById('stSummary').textContent=data.executive_summary||'';
   const ms=document.getElementById('stMiniStats');
-  ms.innerHTML=`
-    <div class="sms-row"><span class="sms-label">Tokens Used</span><span class="sms-val" style="color:var(--cyan)">${(data.tokens_used||0).toLocaleString()}</span></div>
-    <div class="sms-row"><span class="sms-label">Fetch Mode</span><span class="sms-val" style="color:var(--amber)">${(data.fetch_mode||'auto').toUpperCase()}</span></div>
-    <div class="sms-row"><span class="sms-label">Report Year</span><span class="sms-val">${data.report_year||'—'}</span></div>
-    <div class="sms-row"><span class="sms-label">Context</span><span class="sms-val">${data.context_length?Math.round(data.context_length/1000)+'k chars':'—'}</span></div>
-  `;
-
-  // HYPE PANEL
-  renderHype(data);
-
-  // MATURITY
-  renderMaturity(data.hype_score||{});
-
-  // RADAR + DIMS
-  renderRadar(data.dimensions||{});
-  renderDims(data.dimensions||{});
-
-  // STRENGTHS/RISKS
+  ms.innerHTML=`<div class="sms-row"><span class="sms-label">Tokens Used</span><span class="sms-val" style="color:var(--cyan)">${(data.tokens_used||0).toLocaleString()}</span></div><div class="sms-row"><span class="sms-label">Fetch Mode</span><span class="sms-val" style="color:var(--amber)">${(data.fetch_mode||'auto').toUpperCase()}</span></div><div class="sms-row"><span class="sms-label">Report Year</span><span class="sms-val">${data.report_year||'—'}</span></div><div class="sms-row"><span class="sms-label">Context</span><span class="sms-val">${data.context_length?Math.round(data.context_length/1000)+'k chars':'—'}</span></div>`;
+  renderHype(data);renderMaturity(data.hype_score||{});renderRadar(data.dimensions||{});renderDims(data.dimensions||{});
   document.getElementById('strList').innerHTML=(data.strengths||[]).map(s=>`<li class="str-li">${s}</li>`).join('');
   document.getElementById('riskList').innerHTML=(data.risks||[]).map(r=>`<li class="risk-li">${r}</li>`).join('');
-
-  // GAP + OUTCOMES/CLAIMS
   const h=data.hype_score||{};
   document.getElementById('gapText').textContent=h.narrative_vs_outcome_gap||'Not available.';
-  const outs=data.measurable_outcomes||[];
-  const clms=data.claims_without_evidence||[];
+  const outs=data.measurable_outcomes||[];const clms=data.claims_without_evidence||[];
   document.getElementById('outcomesList').innerHTML=outs.length?outs.map(o=>`<li>${o}</li>`).join(''):'<li style="color:var(--muted)">No audited outcomes found.</li>';
   document.getElementById('claimsList').innerHTML=clms.length?clms.map(c=>`<li>${c}</li>`).join(''):'<li style="color:var(--muted)">No unverified claims flagged.</li>';
-
-  // EVIDENCE
-  renderEvidence(data.dimensions||{});
-
-  // SOURCES
-  renderSources(data.sources_analyzed||[]);
-
-  // ANALYST NOTE
+  renderEvidence(data.dimensions||{});renderSources(data.sources_analyzed||[]);
   document.getElementById('analystNote').textContent=h.analyst_note||'Analysis complete.';
-
   setTimeout(()=>rs.scrollIntoView({behavior:'smooth',block:'start'}),80);
+  setActiveTabs('tabAnalyze');
 }
 
 function animateScore(target){
   const num=document.getElementById('scoreNum'),fill=document.getElementById('ringFill'),glow=document.getElementById('ringGlow');
   const col=target>=70?'#00e574':target>=50?'#00d4ff':target>=35?'#ffb800':'#ff4d6a';
-  fill.style.stroke=col;glow.style.stroke=col;
-  document.getElementById('scoreNum').style.color=col;
+  fill.style.stroke=col;glow.style.stroke=col;document.getElementById('scoreNum').style.color=col;
   let n=0;const step=target/90;
   const iv=setInterval(()=>{n=Math.min(n+step,target);num.textContent=Math.round(n);if(n>=target)clearInterval(iv);},16);
-  setTimeout(()=>{const circumference=565;const off=circumference-(circumference*target/100);fill.style.strokeDashoffset=off;glow.style.strokeDashoffset=off;},80);
+  setTimeout(()=>{const c=565;const off=c-(c*target/100);fill.style.strokeDashoffset=off;glow.style.strokeDashoffset=off;},80);
 }
 
 function renderHype(data){
-  const h=data.hype_score||{};
-  const total=h.total||0;
+  const h=data.hype_score||{};const total=h.total||0;
   const isLow=total<=3,isHigh=total>=7;
   const col=isLow?'var(--green)':isHigh?'var(--rose)':'var(--amber)';
   const badgeCls=isLow?'hb-low':isHigh?'hb-high':'hb-some';
-  document.getElementById('hypeCard').style.setProperty('--hc',''+col);
-  document.getElementById('hypeCard').querySelector('::before');
   document.getElementById('hypeTitle').textContent=data.company||'Hype Analysis';
   const badge=document.getElementById('hypeBadge');badge.textContent=(h.label||'UNKNOWN');badge.className='hype-badge '+badgeCls;
-  document.getElementById('hypeNum').textContent=total;
-  document.getElementById('hypeNum').style.color=col;
-  // Gauge
+  document.getElementById('hypeNum').textContent=total;document.getElementById('hypeNum').style.color=col;
   const pct=(total/10)*100;
-  setTimeout(()=>{
-    document.getElementById('gaugeActive').style.width=pct+'%';
-    document.getElementById('gaugePointer').style.left=pct+'%';
-  },300);
-  // Hype dims
+  setTimeout(()=>{document.getElementById('gaugeActive').style.width=pct+'%';document.getElementById('gaugePointer').style.left=pct+'%';},300);
   const row=document.getElementById('hypeDimsRow');row.innerHTML='';
   Object.entries(h.dimensions||{}).forEach(([k,v])=>{
-    const def=HYPE_DIMS[k]||{label:k};
-    const sc=v.score||0;
-    const dimCol=sc===0?'var(--green)':sc===1?'var(--amber)':'var(--rose)';
-    const pct2=(sc/2)*100;
+    const def=HYPE_DIMS[k]||{label:k};const sc=v.score||0;
+    const dimCol=sc===0?'var(--green)':sc===1?'var(--amber)':'var(--rose)';const pct2=(sc/2)*100;
     const d=document.createElement('div');d.className='hdim-mini';
     d.innerHTML=`<div class="hdm-name">${def.label}</div><div class="hdm-bar"><div class="hdm-fill" style="background:${dimCol}" data-w="${pct2}"></div></div><div class="hdm-score" style="color:${dimCol}">${sc}/2</div>`;
     row.appendChild(d);
@@ -1364,50 +1875,23 @@ function renderMaturity(h){
     if(i<MAT_STAGES.length-1){const conn=document.createElement('div');conn.className='mat-connector'+(isDone?' done':'');track.appendChild(conn);}
   });
   const counts=document.getElementById('mcCounts');
-  counts.innerHTML=`
-    <div class="mcc-row"><span class="mcc-l">Audited Outcomes</span><span class="mcc-v" style="color:var(--violet)">${h.audited_outcomes_count??'—'}</span></div>
-    <div class="mcc-row"><span class="mcc-l">Unverified Claims</span><span class="mcc-v" style="color:var(--amber)">${h.marketing_claims_count??'—'}</span></div>
-  `;
+  counts.innerHTML=`<div class="mcc-row"><span class="mcc-l">Audited Outcomes</span><span class="mcc-v" style="color:var(--violet)">${h.audited_outcomes_count??'—'}</span></div><div class="mcc-row"><span class="mcc-l">Unverified Claims</span><span class="mcc-v" style="color:var(--amber)">${h.marketing_claims_count??'—'}</span></div>`;
 }
 
 function renderRadar(dims){
   const ctx=document.getElementById('radarCanvas').getContext('2d');
   if(RADAR)RADAR.destroy();
   const keys=Object.keys(dims);
-  RADAR=new Chart(ctx,{
-    type:'radar',
-    data:{labels:keys.map(k=>DIMS[k]?.label||k),datasets:[{
-      data:keys.map(k=>parseFloat(dims[k]?.score)||0),
-      borderColor:'rgba(0,212,255,0.8)',backgroundColor:'rgba(0,212,255,0.05)',
-      borderWidth:1.5,pointBackgroundColor:keys.map(k=>DIMS[k]?.col||'#888'),
-      pointBorderColor:'#050508',pointBorderWidth:2,pointRadius:5,pointHoverRadius:7,
-    }]},
-    options:{responsive:true,maintainAspectRatio:false,
-      scales:{r:{min:0,max:10,ticks:{stepSize:2,color:'#383860',font:{family:'JetBrains Mono',size:10},backdropColor:'transparent'},
-        grid:{color:'rgba(30,30,56,.8)'},angleLines:{color:'rgba(30,30,56,.6)'},
-        pointLabels:{color:'#5a5a8a',font:{family:'Cabinet Grotesk',size:11,weight:'600'}}}},
-      plugins:{legend:{display:false}},
-      animation:{duration:1600,easing:'easeOutQuart'},
-    }
-  });
+  RADAR=new Chart(ctx,{type:'radar',data:{labels:keys.map(k=>DIMS[k]?.label||k),datasets:[{data:keys.map(k=>parseFloat(dims[k]?.score)||0),borderColor:'rgba(0,212,255,0.8)',backgroundColor:'rgba(0,212,255,0.05)',borderWidth:1.5,pointBackgroundColor:keys.map(k=>DIMS[k]?.col||'#888'),pointBorderColor:'#050508',pointBorderWidth:2,pointRadius:5,pointHoverRadius:7}]},options:{responsive:true,maintainAspectRatio:false,scales:{r:{min:0,max:10,ticks:{stepSize:2,color:'#383860',font:{family:'JetBrains Mono',size:10},backdropColor:'transparent'},grid:{color:'rgba(30,30,56,.8)'},angleLines:{color:'rgba(30,30,56,.6)'},pointLabels:{color:'#5a5a8a',font:{family:'Cabinet Grotesk',size:11,weight:'600'}}}},plugins:{legend:{display:false}},animation:{duration:1600,easing:'easeOutQuart'}}});
 }
 
 function renderDims(dims){
   const list=document.getElementById('dimList');list.innerHTML='';
   Object.entries(dims).forEach(([k,v])=>{
-    const m=DIMS[k]||{label:k,w:0,col:'var(--soft)'};
-    const sc=parseFloat(v.score)||0;
-    const cls=sc>=7?'ds-hi':sc>=4?'ds-md':'ds-lo';
-    const trust=v.evidence_trust||'public';
-    const trustCls='dt-'+trust;
+    const m=DIMS[k]||{label:k,w:0,col:'var(--soft)'};const sc=parseFloat(v.score)||0;
+    const cls=sc>=7?'ds-hi':sc>=4?'ds-md':'ds-lo';const trust=v.evidence_trust||'public';
     const d=document.createElement('div');d.className='dim-item';
-    d.innerHTML=`
-      <div class="dim-header">
-        <span class="dim-name">${m.label}<span class="dim-wt">(${m.w}%)</span><span class="dim-trust ${trustCls}">${trust}</span></span>
-        <span class="dim-score ${cls}">${sc.toFixed(1)}</span>
-      </div>
-      <div class="dim-bar-track"><div class="dim-bar-fill" style="background:${m.col}" data-w="${(sc/10)*100}"></div></div>
-      <div class="dim-reason">${v.reasoning||''}</div>`;
+    d.innerHTML=`<div class="dim-header"><span class="dim-name">${m.label}<span class="dim-wt">(${m.w}%)</span><span class="dim-trust dt-${trust}">${trust}</span></span><span class="dim-score ${cls}">${sc.toFixed(1)}</span></div><div class="dim-bar-track"><div class="dim-bar-fill" style="background:${m.col}" data-w="${(sc/10)*100}"></div></div><div class="dim-reason">${v.reasoning||''}</div>`;
     list.appendChild(d);
   });
   setTimeout(()=>document.querySelectorAll('.dim-bar-fill').forEach(b=>b.style.width=b.dataset.w+'%'),400);
@@ -1415,12 +1899,10 @@ function renderDims(dims){
 
 function renderEvidence(dims){
   const list=document.getElementById('evList');list.innerHTML='';
-  const cols=['#00d4ff','#ffb800','#00e574','#9d7dff','#ff8c42','#ff4d6a'];
-  let i=0;
+  const cols=['#00d4ff','#ffb800','#00e574','#9d7dff','#ff8c42','#ff4d6a'];let i=0;
   Object.entries(dims).forEach(([k,v])=>{
     if(!v.evidence?.length)return;
-    const m=DIMS[k]||{label:k};const col=cols[i++%cols.length];
-    const trust=v.evidence_trust||'public';
+    const m=DIMS[k]||{label:k};const col=cols[i++%cols.length];const trust=v.evidence_trust||'public';
     const tCls='ev-trust-'+(trust==='audited'?'a':trust==='mixed'?'m':'p');
     const el=document.createElement('div');el.className='ev-item';el.style.borderLeftColor=col;
     el.innerHTML=`<div class="ev-dim-row"><span class="ev-dim-name" style="color:${col}">${m.label}</span><span class="ev-trust ${tCls}">${trust}</span></div><ul class="ev-findings">${v.evidence.map(e=>`<li>${e}</li>`).join('')}</ul>`;
@@ -1434,8 +1916,7 @@ function renderSources(srcs){
   const pdfInput=document.getElementById('pdfInput').value;
   const linksInput=document.getElementById('linksInput').value.split(',')[0];
   grid.innerHTML=(srcs||[]).map(s=>{
-    const type=typeof s==='string'?s:(s.type||'unknown');
-    const trust=typeof s==='object'?s.trust:'public';
+    const type=typeof s==='string'?s:(s.type||'unknown');const trust=typeof s==='object'?s.trust:'public';
     let url=typeof s==='object'&&s.url?s.url:'';
     if(!url&&type==='annual_report'&&annualInput)url=annualInput;
     if(!url&&type==='pdf_prospectus'&&pdfInput)url=pdfInput;
@@ -1454,11 +1935,7 @@ function showLoading(co){
   document.getElementById('loadCompany').textContent=co;
   ['lp1','lp2','lp3','lp4'].forEach(id=>document.getElementById(id).className='lpstep');
   ['la1','la2','la3'].forEach(id=>document.getElementById(id).className='lparr');
-  const srcs=MODE==='auto'
-    ?[{i:0,l:'🌐 Wikipedia'},{i:1,l:'🦆 DuckDuckGo'},{i:2,l:'📰 Google News'},{i:3,l:'🎥 YouTube'}]
-    :MODE==='both'
-    ?[{i:0,l:'📋 Annual Report'},{i:1,l:'🌐 Auto Sources'},{i:2,l:'📄 PDF'},{i:3,l:'🎥 YouTube'}]
-    :[{i:0,l:'📋 Annual Report'},{i:1,l:'📄 PDF'},{i:2,l:'🌐 Website'},{i:3,l:'🤖 Groq 70B'}];
+  const srcs=MODE==='auto'?[{i:0,l:'🌐 Wikipedia'},{i:1,l:'🦆 DuckDuckGo'},{i:2,l:'📰 Google News'},{i:3,l:'🎥 YouTube'}]:MODE==='both'?[{i:0,l:'📋 Annual Report'},{i:1,l:'🌐 Auto Sources'},{i:2,l:'📄 PDF'},{i:3,l:'🎥 YouTube'}]:[{i:0,l:'📋 Annual Report'},{i:1,l:'📄 PDF'},{i:2,l:'🌐 Website'},{i:3,l:'🤖 Groq 70B'}];
   document.getElementById('loadChips').innerHTML=srcs.map(s=>`<div class="lchip" id="lc${s.i}">${s.l}</div>`).join('');
   const steps=['lp1','lp2','lp3','lp4'],arrows=['la1','la2','la3'];
   const notes=['Fetching sources from web…','Processing annual report intelligence…','Running capability scoring — Groq 70B…','Running hype audit — AIWithoutTheHype method…'];
@@ -1488,29 +1965,85 @@ function renderHist(){
 function loadHist(i){const e=HIST[i];if(!e)return;RESULT=e.result;MODE=e.mode||'auto';renderResults(e.result);}
 
 // ══ NAV ══
+function setActiveTabs(activeId){
+  ['tabAnalyze','tabMethodology','tabHistory'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('on',id===activeId);
+  });
+}
+
 function showAnalyze(){
   document.getElementById('inputSection').style.display='grid';
   document.getElementById('resultsSection').classList.remove('on');
   document.getElementById('histSection').style.display='none';
-  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
-  event.target.classList.add('on');
+  document.getElementById('methSection').classList.remove('on');
+  setActiveTabs('tabAnalyze');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function showHistory(){
   document.getElementById('inputSection').style.display='none';
   document.getElementById('resultsSection').classList.remove('on');
+  document.getElementById('methSection').classList.remove('on');
   renderHist();
   document.getElementById('histSection').style.display='block';
-  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
-  event.target.classList.add('on');
+  setActiveTabs('tabHistory');
 }
 function goBack(){
   document.getElementById('resultsSection').classList.remove('on');
   document.getElementById('inputSection').style.display='grid';
-  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
-  document.querySelector('.ntab').classList.add('on');
+  document.getElementById('methSection').classList.remove('on');
+  setActiveTabs('tabAnalyze');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+// ══ METHODOLOGY ══
+function showMethodology(){
+  document.getElementById('inputSection').style.display='none';
+  document.getElementById('resultsSection').classList.remove('on');
+  document.getElementById('histSection').style.display='none';
+  document.getElementById('methSection').classList.add('on');
+  setActiveTabs('tabMethodology');
+  window.scrollTo({top:0,behavior:'smooth'});
+  // trigger animations after a brief delay
+  setTimeout(initMethAnimations, 120);
+}
+
+function initMethAnimations(){
+  // Pipeline nodes
+  document.querySelectorAll('.pf-stage').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('visible'),i*120);
+  });
+  // Source chips
+  document.querySelectorAll('.pf-src-chip').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('visible'),600 + i*100);
+  });
+  // Trust rungs
+  document.querySelectorAll('.trust-rung').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('visible'),i*120);
+  });
+  // Scroll-triggered elements
+  observeMethElements();
+}
+
+function observeMethElements(){
+  const targets = document.querySelectorAll(
+    '.meth-scroll-reveal, .dim-card, .grade-tile, .hf-card, .hl-card, .pass-card'
+  );
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view','visible');
+        // animate dimension bars when visible
+        const bars = entry.target.querySelectorAll('.dim-bar-animated');
+        bars.forEach(b=>{
+          setTimeout(()=>{ b.style.width = b.dataset.w+'%'; },300);
+        });
+      }
+    });
+  },{threshold:0.15});
+  targets.forEach(el=>obs.observe(el));
+}
+
 function showErr(m){document.getElementById('errBox').classList.add('on');document.getElementById('errMsg').textContent=m;}
 function hideErr(){document.getElementById('errBox').classList.remove('on');}
 
